@@ -19,9 +19,16 @@ app.post('/api/chat', async (req, res) => {
 
   try {
     // Minimal example using OpenAI Chat Completions via fetch
-    const system = context
-      ? `Use this page context to answer succinctly:\n${String(context).slice(0, 3000)}`
-      : 'You are a helpful assistant.';
+    // server.js (inside /api/chat)
+const system = context
+? `You are a helpful assistant answering questions about THIS PAGE.
+Use the supplied page context *only if relevant*. If the answer is not in the context, say so briefly and offer what you *can* do next.
+Prefer factual, concise answers.
+
+---PAGE CONTEXT START---
+${String(context).slice(0, 3000)}
+---PAGE CONTEXT END---`
+: 'You are a helpful assistant.';
 
     const body = {
       model: 'gpt-4o-mini',
