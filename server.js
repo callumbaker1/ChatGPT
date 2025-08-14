@@ -1,32 +1,51 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
+// server.js (ESM)
+import express from 'express';
+import cors from 'cors';
+import 'dotenv/config'; // loads .env
 
 const app = express();
-
-// Allow all origins for now (easy while testing). You can lock this down later.
 app.use(cors());
-app.use(express.json({ limit: '1mb' }));
+app.use(express.json());
 
-// Health check
 app.get('/', (_req, res) => {
-  res.json({ ok: true, service: 'stickershop-ai-api' });
+  res.send('Stickershop AI API is running');
 });
 
-// Chat endpoint your widget will POST to
-// Expects: { messages:[{role,content}...], context:string }
 app.post('/api/chat', async (req, res) => {
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) return res.status(500).send('Missing OPENAI_API_KEY');
+
+  const { messages = [], context = '' } = req.body || {};
+
   try {
-    const { messages = [], context = '' } = req.body || {};
-    const last = messages.length ? messages[messages.length - 1].content : '';
+    // Minimal example using OpenAI Chat Completions via fetch
+    const system = context
+      ? `Use this page context to answer succinctly:\n${String(context).slice(0, 3000)}`
+      : 'You are a helpful assistant.';
 
-    // For now: echo a friendly reply so you can wire everything up.
-    // Later you’ll swap this for a real model call.
-    const reply =
-      'Thanks! I received your message:\n\n' +
-      (last || '(empty)') +
-      (context ? '\n\n(P.S. I can also see some page context.)' : '');
+    const body = {
+      model: 'gpt-4o-mini',
+      messages: [{ role: 'system', content: system }, ...messages].slice(-12),
+      temperature: 0.4,
+      max_tokens: 600
+    };
 
+    const resp = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+
+    const data = await resp.json();
+    if (!resp.ok) {
+      console.error('OpenAI error:', data);
+      return res.status(500).send(data?.error?.message || 'OpenAI request failed');
+    }
+
+    const reply = data?.choices?.[0]?.message?.content?.trim() || '';
     res.json({ reply });
   } catch (err) {
     console.error(err);
@@ -35,4 +54,4 @@ app.post('/api/chat', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log('API listening on :' + PORT));
+app.listen(PORT, () => console.log(`API listening on :${PORT}`));
