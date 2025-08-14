@@ -29,6 +29,13 @@ SOURCE PRIORITY:
 When you rely on general guidance, briefly prefix a line like "General guidance:".
 
 Be concise, friendly and helpful. Use short paragraphs or bullets where it aids clarity.
+
+FORMAT:
+- Reply in **Markdown**.
+- Use \`###\` subheadings for sections.
+- Use **bold** labels and bullet lists where helpful.
+- Avoid code fences unless showing code.
+- Keep it concise and friendly.
 `;
 
   // Put the whole context in the system message so the model always sees it
