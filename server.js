@@ -3,7 +3,6 @@ import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 
-const BRAND_NAME = process.env.BRAND_NAME || 'StickerShop';
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -12,48 +11,39 @@ app.get('/', (_req, res) => {
   res.send('Stickershop AI API is running');
 });
 
-/** Strict system prompt: ONLY answer from provided context */
-function strictSystem(ctx = '', origin = '', brand = 'StickerShop') {
-  return `
-You are the on-site assistant for ${brand} (${origin}).
-Speak as ${brand} in first-person plural — use “we”, “us”, and “our”.
-Never refer to ${brand} in the third person (no “they/it/StickerShop says…”).
-
-Style: concise, friendly UK English.
-
-Source of truth:
-• Use ONLY the provided CONTEXT from this page.
-• If a JSON block named PRODUCT_MATRIX is present, treat it as canonical.
-• If the answer is not supported by the context, reply exactly:
-  "We couldn’t find that on this page. Try another page or ask a different question."
-
----- START CONTEXT ----
-${ctx || '(no context provided)'}
----- END CONTEXT ----
-`.trim();
-}
-
-/** Softer prompt (not used when strict=true) */
-function softSystem(ctx = '') {
-  if (!ctx) return 'You are a helpful assistant.';
-  return `Use this page context to answer succinctly and accurately:\n${ctx}`;
-}
-
 app.post('/api/chat', async (req, res) => {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) return res.status(500).send('Missing OPENAI_API_KEY');
 
+  // client sends: { messages: [...], context: "AI_KNOWLEDGE_JSON: {...}\nVISIBLE_TEXT: ..." }
   const { messages = [], context = '' } = req.body || {};
-  const origin = req.headers.origin || req.get('host') || 'this site';
 
-  const system = strictSystem(context, origin, BRAND_NAME);
+  // Softer policy: prioritise page data, but allow generic guidance when needed.
+  const policy = `
+You are StickerShop’s website assistant. Speak as "we"/"our" (first person plural).
+SOURCE PRIORITY:
+1) If PAGE_CONTEXT contains an "AI_KNOWLEDGE_JSON" block, treat that JSON as authoritative.
+2) Otherwise use the rest of PAGE_CONTEXT text.
+3) If the page doesn’t cover it, you MAY give general UK-relevant guidance, but keep it generic.
+   Do NOT invent precise prices, lead times, SKUs, or certifications not in the page.
+When you rely on general guidance, briefly prefix a line like "General guidance:".
+
+Be concise, friendly and helpful. Use short paragraphs or bullets where it aids clarity.
+`;
+
+  // Put the whole context in the system message so the model always sees it
+  const systemWithContext = `${policy}\n\nPAGE_CONTEXT START\n${String(context).slice(0, 12000)}\nPAGE_CONTEXT END`;
 
   try {
     const body = {
       model: 'gpt-4o-mini',
-      messages: [{ role: 'system', content: system }, ...messages].slice(-12),
-      temperature: 0,        // keep it factual and less “creative”
-      max_tokens: 600
+      messages: [
+        { role: 'system', content: systemWithContext },
+        // keep only the tail of the conversation to stay under token limits
+        ...messages.slice(-12)
+      ],
+      temperature: 0.5,      // a bit more relaxed vs 0.3–0.4
+      max_tokens: 800
     };
 
     const resp = await fetch('https://api.openai.com/v1/chat/completions', {
