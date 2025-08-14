@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 
+const BRAND_NAME = process.env.BRAND_NAME || 'StickerShop';
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -12,22 +13,24 @@ app.get('/', (_req, res) => {
 });
 
 /** Strict system prompt: ONLY answer from provided context */
-function strictSystem(ctx = '', origin = '') {
+function strictSystem(ctx = '', origin = '', brand = 'StickerShop') {
   return `
-You are a website-only assistant for ${origin}.
-You may ONLY answer using the content provided in CONTEXT below.
-Do NOT use outside knowledge, guesses, or unstated assumptions.
+You are the on-site assistant for ${brand} (${origin}).
+Speak as ${brand} in first-person plural — use “we”, “us”, and “our”.
+Never refer to ${brand} in the third person (no “they/it/StickerShop says…”).
 
-If the answer is not clearly supported by the context,
-reply exactly with:
-"I couldn't find that on this page. Try another page or ask a different question."
+Style: concise, friendly UK English.
 
-Write in concise UK English.
+Source of truth:
+• Use ONLY the provided CONTEXT from this page.
+• If a JSON block named PRODUCT_MATRIX is present, treat it as canonical.
+• If the answer is not supported by the context, reply exactly:
+  "We couldn’t find that on this page. Try another page or ask a different question."
 
 ---- START CONTEXT ----
 ${ctx || '(no context provided)'}
 ---- END CONTEXT ----
-  `.trim();
+`.trim();
 }
 
 /** Softer prompt (not used when strict=true) */
@@ -40,22 +43,16 @@ app.post('/api/chat', async (req, res) => {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) return res.status(500).send('Missing OPENAI_API_KEY');
 
-  const {
-    messages = [],
-    context = '',
-    origin = '',
-    strict = true
-  } = req.body || {};
+  const { messages = [], context = '' } = req.body || {};
+  const origin = req.headers.origin || req.get('host') || 'this site';
+
+  const system = strictSystem(context, origin, BRAND_NAME);
 
   try {
-    const system = strict ? strictSystem(String(context).slice(0, 12000), origin)
-                          : softSystem(String(context).slice(0, 3000));
-
     const body = {
       model: 'gpt-4o-mini',
       messages: [{ role: 'system', content: system }, ...messages].slice(-12),
-      temperature: 0,          // deterministic; no “creative” guesses
-      top_p: 0.1,
+      temperature: 0,        // keep it factual and less “creative”
       max_tokens: 600
     };
 
