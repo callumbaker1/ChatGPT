@@ -24,11 +24,63 @@ try {
   console.warn('products.json failed to load:', err.message);
 }
 
+// ---------------- Normalisers for product objects ----------------
+// Make an absolute/valid-ish URL from a variety of shapes.
+function normalizeUrl(u) {
+  if (!u) return '';
+  let s = String(u).trim();
+  if (!s) return '';
+
+  // Protocol-relative (//cdn...) -> https
+  if (s.startsWith('//')) s = 'https:' + s;
+
+  // If it's already http(s): or data: or /relative, keep it
+  if (/^(?:https?:|data:|\/)/i.test(s)) return s;
+
+  // Otherwise treat as site-relative path
+  return '/' + s.replace(/^\/+/, '');
+}
+
+// Try multiple image fields and return one best guess.
+function firstImage(p = {}) {
+  const cand = [
+    p.thumb,
+    p.image,
+    p.image_url,
+    p.img,
+    p.images?.card,
+    p.images?.thumb,
+    Array.isArray(p.images) ? p.images[0] : null,
+  ].find(Boolean);
+  return normalizeUrl(cand || '');
+}
+
+// Map any raw product to the compact shape the frontend expects.
+function pickForClient(p = {}) {
+  const id =
+    p.id || p.handle || p.sku || p.slug || p.title || Math.random().toString(36).slice(2);
+
+  return {
+    id,
+    title: String(p.title || p.name || '').trim(),
+    url: normalizeUrl(p.url || p.link || p.href || '#'),
+    price: (p.price !== undefined && p.price !== null)
+      ? Number(p.price)
+      : null,
+    unit: p.unit || '',
+    pitch: p.pitch || p.subtitle || p.tagline || '',
+    thumb: firstImage(p),  // <- unified key the UI uses for images
+    // keep a few extras in case you want them later:
+    currency: p.currency || 'GBP',
+    tags: Array.isArray(p.tags) ? p.tags : [],
+  };
+}
+
 // Trim catalogue for the model (fewer tokens)
 const catalogForLLM = CATALOG.map(p => ({
-  id: p.id,
-  title: p.title,
-  price: p.price,
+  id: pickForClient(p).id,
+  title: String(p.title || p.name || '').trim(),
+  price: (p.price !== undefined && p.price !== null) ? Number(p.price) : null,
   currency: p.currency || 'GBP',
   tags: p.tags || [],
   pitch: p.pitch || ''
@@ -81,7 +133,14 @@ function extractProductsFromReply(text) {
   try { ids = JSON.parse(m[1]); } catch { ids = []; }
 
   const items = ids
-    .map(x => CATALOG.find(p => p.id === x.id))
+    .map(x => {
+      // find matching product in raw catalog (by id), then map for client
+      const raw = CATALOG.find(p => {
+        const candidateId = pickForClient(p).id; // ensure same id logic
+        return candidateId === x.id;
+      });
+      return raw ? pickForClient(raw) : null;
+    })
     .filter(Boolean);
 
   const clean = String(text).replace(/PRODUCTS_JSON=\[.*?\]\s*$/, '').trim();
@@ -96,7 +155,11 @@ app.use(express.json());
 // Health/debug
 app.get('/', (_req, res) => res.send('Stickershop AI API is running'));
 app.get('/health', (_req, res) => res.json({ ok: true, products: CATALOG.length }));
-app.get('/api/products', (_req, res) => res.json({ count: CATALOG.length, products: CATALOG }));
+app.get('/api/products', (_req, res) => {
+  // Always return normalised products for the UI
+  const out = CATALOG.map(pickForClient);
+  res.json({ count: out.length, products: out });
+});
 
 // Chat endpoint
 app.post('/api/chat', async (req, res) => {
@@ -143,6 +206,7 @@ app.post('/api/chat', async (req, res) => {
     const raw = data?.choices?.[0]?.message?.content || '';
     const { clean, items } = extractProductsFromReply(raw);
 
+    // items are already client-shaped via pickForClient in extractProductsFromReply
     res.json({ reply: clean, products: items });
 
   } catch (err) {
