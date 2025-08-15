@@ -1,25 +1,72 @@
 [
     {
-      "id": "floor-vinyl-indoor",
-      "title": "Indoor Floor Vinyl",
-      "url": "https://www.stickershop.co.uk/products/indoor-floor-vinyl",
-      "image": "https://www.stickershop.co.uk/cdn/images/indoor-floor-vinyl.jpg",
-      "price": 18.0,
-      "currency": "GBP",
-      "unit": "per m²",
-      "tags": ["indoor", "hard-floor", "low-pile-carpet", "short-to-mid-term", "R10", "budget", "popular"],
-      "pitch": "Durable indoor graphics for smooth hard floors and low-pile carpet tiles with R10 slip rating.",
-      "features": [
-        "R10 slip certified",
-        "Removable adhesive—low residue",
-        "Works on tile, sealed concrete, vinyl; low-pile carpet tiles",
-        "No extra laminate required"
-      ],
-      "suitability": [
-        "Indoor only",
-        "Typical life 6–12 months (site dependent)"
-      ]
-    },
+        "id": "white-waterproof-vinyl",
+        "name": "White Waterproof Vinyl Stickers",
+        "product_url": "https://www.stickershop.co.uk/products/white-waterproof-vinyl-printed-labels-stickers",
+        "image_urls": "https://www.stickershop.co.uk/cdn/shop/t/39/assets/WATERPROOF1MEGA.png?v=51541922741658669601738155798",
+        "category": ["stickers", "waterproof"],
+        "tags": ["waterproof", "indoor", "outdoor", "uv-resistant", "sheets", "vinyl"],
+        "supplied": {
+          "type": "sheets",
+          "notes": "Printed, kiss-cut multiple per sheet. For individuals see Die Cut Stickers."
+        },
+        "material": {
+          "film_type": "Monomeric calendered PVC",
+          "thickness_microns": 100,
+          "finish_options": ["Matt", "Gloss"],
+          "adhesive_options": ["Permanent", "Removable", "High Tack"]
+        },
+        "print": {
+          "process": "Full-colour CMYK",
+          "white_ink": false,
+          "uv_resistant_inks": true
+        },
+        "performance": {
+          "waterproof": true,
+          "uv_resistant": true
+        },
+        "dimensions": {
+          "min_width_mm": 10,
+          "max_width_mm": 1500,
+          "shape_options": ["round", "square", "rectangle", "oval", "custom"],
+          "perforated_cuts_supported": true
+        },
+        "tech_specs": {
+          "operating_temperature_c": { "min": -20, "max": 80 },
+          "fire_rating": "Self-extinguishing (substrate dependent)",
+          "regulatory": ["REACH compliant", "RoHS compliant"]
+        },
+        "recommended_uses": [
+          "Cosmetic bottles & jars",
+          "Outdoor equipment",
+          "Machinery/equipment labels",
+          "Product & packaging branding"
+        ],
+        "benefits": [
+          "Durable indoor/outdoor performance",
+          "Cut to any shape/size (incl. perforations)",
+          "Matt or gloss finishes",
+          "Permanent / removable / high-tack adhesives"
+        ],
+        "ai_summary": "White waterproof vinyl labels on 100 μm PVC with UV-resistant inks. Supplied on sheets, any shape/size, matt or gloss, with permanent/removable/high-tack adhesive. Indoor/outdoor use.",
+        "description_md": "### Overview\nOur **White Waterproof Vinyl** stickers are printed on 100-micron brilliant-white PVC with **UV-resistant inks** for durable **indoor and outdoor** use. They’re resistant to water and splashes, so they’re ideal for cosmetic bottles, outdoor equipment, packaging and general-purpose labelling.\n\n### Finishes & Adhesives\n- **Finishes:** Matt or Gloss  \n- **Adhesives:** Permanent, Removable or **High Tack** (extra-permanent)  \n- **Supply:** **On sheets** (multiple kiss-cut stickers per sheet). For individually cut pieces, see *Die Cut Stickers*.\n\n### Shapes & Sizing\n- **Any shape/size** (round, square, rectangle, oval, custom)  \n- **Perforated cuts** available for easy peeling  \n- Typical size range: **10 mm – 1500 mm** wide\n\n### Why choose this material?\n- **Waterproof & UV-resistant** for outdoor durability  \n- **Versatile**—great general-purpose choice  \n- **Clean, professional print** with full-colour CMYK\n\n### Tech Specs (summary)\n- Film: **Monomeric calendered PVC**, **100 μm**  \n- Operating temp: **-20°C to +80°C**  \n- Fire rating: **Self-extinguishing** (substrate dependent)  \n- Compliance: **REACH**, **RoHS**\n",
+        "faq": [
+          {
+            "q": "Are these truly waterproof?",
+            "a": "Yes—printed on waterproof vinyl with UV-resistant inks, suitable for indoor and outdoor use."
+          },
+          {
+            "q": "Can you do any shape?",
+            "a": "Yes, we kiss-cut to **any custom shape or size**, including perforated cuts."
+          },
+          {
+            "q": "What's the most durable option?",
+            "a": "Choose **High Tack** adhesive for maximum hold, or upgrade to **Laminated Vinyl** for extra surface protection."
+          }
+        ],
+        "related_products": ["clear-waterproof-vinyl", "laminated-vinyl", "die-cut-stickers"],
+        "ranking_hints": { "cost": 0.6, "durability": 0.7, "waterproof": 1.0, "eco": 0.3 }
+      },
     {
       "id": "floor-vinyl-outdoor",
       "title": "Outdoor Floor Vinyl",
@@ -42,26 +89,92 @@
       ]
     },
     {
-      "id": "carpet-graphic-short-term",
-      "title": "Short-Term Carpet Graphics",
-      "url": "https://www.stickershop.co.uk/products/carpet-floor-stickers",
-      "image": "https://www.stickershop.co.uk/cdn/images/carpet-floor-stickers.jpg",
-      "price": 21.0,
-      "currency": "GBP",
-      "unit": "per m²",
-      "tags": ["carpet", "events", "short-term", "retail", "anti-slip"],
-      "pitch": "Event-friendly carpet decals that stay put yet remove cleanly.",
-      "features": [
-        "Optimised for carpet fibres",
-        "Removable adhesive",
-        "Anti-slip surface",
-        "Ideal for promotions and exhibitions"
-      ],
-      "suitability": [
-        "Indoor carpet (including many commercial tiles)",
-        "Typical life up to 3 months"
-      ]
-    },
+        "id": "premium-paper-stickers",
+        "name": "Premium Paper Stickers",
+        "product_url": "https://www.stickershop.co.uk/collections/premium-paper-stickers",
+        "image_urls": "https://www.stickershop.co.uk/cdn/shop/t/39/assets/PAPER1MEGA.png?v=138201583269234387481738155606",
+        "category": ["stickers", "paper"],
+        "tags": ["indoor", "sheets", "budget", "paper", "full-colour", "matt", "gloss"],
+        "supplied": {
+          "type": "sheets",
+          "notes": "Printed, kiss-cut and supplied planned up on sheets for easy peeling."
+        },
+        "variants": [
+          {
+            "name": "Pre-cut Paper Labels",
+            "notes": "Cheaper pre-cut shapes/sizes for fast selection.",
+            "url": "UPDATE_ME_precut_url"
+          }
+        ],
+        "material": {
+          "paper_type": "High bulk, woodfree, uncoated paper",
+          "finish_options": ["Uncoated (Matt)", "Gloss"],
+          "adhesive_options": ["Permanent", "Removable"]
+        },
+        "print": {
+          "process": "High-quality laser digital press, full-colour CMYK",
+          "white_ink": false,
+          "notes": "Heavy ink coverage on gloss may appear more satin; lighter colours or leaving areas unprinted recommended for best results."
+        },
+        "performance": {
+          "waterproof": false,
+          "splash_resistant": true,
+          "indoor_only": true
+        },
+        "dimensions": {
+          "min_width_mm": 10,
+          "max_width_mm": 1500,
+          "shape_options": ["round", "square", "rectangle", "oval", "custom"]
+        },
+        "tech_specs": {
+          "grammage_gsm": 70,
+          "operating_temperature_c": { "min": -20, "max": 80 },
+          "regulatory": [
+            "Adhesive conforms to EN71-3 (Toy Safety)",
+            "Packaging Regulations compliant"
+          ]
+        },
+        "sustainability": {
+          "woodland_trust_carbon_capture": true,
+          "notes": "Purchases contribute to Woodland Trust's Carbon Capture Scheme via our paper range."
+        },
+        "recommended_uses": [
+          "Branded packaging labels",
+          "Wine bottles & candles",
+          "Cosmetic products (indoor)",
+          "Address & shipping labels",
+          "General-purpose indoor stickers"
+        ],
+        "benefits": [
+          "Most cost-effective sticker option",
+          "Any shape and size with crisp full-colour print",
+          "Choice of matt (uncoated) or gloss finish",
+          "Permanent or removable adhesives",
+          "Supplied on easy-peel sheets"
+        ],
+        "ai_summary": "Budget-friendly **paper stickers** for **indoor** use. Uncoated (matt) or gloss finish, **permanent/removable** adhesive, any shape/size, supplied on **sheets**. Not waterproof; light splash only.",
+        "description_md": "### Overview\nOur **Premium Paper Stickers** are a high-quality, budget-friendly choice for **indoor** applications. Printed on a laser digital press in full-colour CMYK, they’re fully customisable to **any shape or size** and supplied **planned up on sheets** for easy peeling.\n\n### Finishes & Adhesives\n- **Finishes:** Uncoated (Matt) or Gloss  \n- **Adhesives:** **Permanent** or **Removable**  \n- **Supply:** Sheets (multiple kiss-cut labels per sheet)\n\n> **Gloss tip:** Very heavy ink coverage on gloss paper can appear more satin. For the crispest gloss look, use lighter colours or leave some areas unprinted.\n\n### When to choose paper\n- **Best value** for branding and packaging  \n- Great for **address/shipping labels**, **candles**, **wine bottles**, and **cosmetics** used indoors  \n- **Not waterproof**—OK with light splashes only. For water exposure, choose **White Waterproof Vinyl** instead.\n\n### Shapes & Sizing\n- **Any shape:** round, square, rectangle, oval, or **custom**  \n- Typical width range: **10 mm – 1500 mm**\n\n### Tech Specs\n- Stock: **High bulk, woodfree uncoated paper**, **70 gsm**  \n- Temperature: **-20°C to +80°C**  \n- Regulations: **EN71-3 (adhesive)**, **Packaging Regulations**\n\n### Sustainability\nWe participate in the **Woodland Trust Carbon Capture** scheme across our paper range—your orders help fund new UK woodland planting.\n",
+        "faq": [
+          {
+            "q": "Are paper stickers waterproof?",
+            "a": "No. They're suitable for indoor use and can handle light splashes only. For water exposure, choose **White Waterproof Vinyl**."
+          },
+          {
+            "q": "Can you do any custom shape and size?",
+            "a": "Yes—we kiss-cut to any shape and size and supply on sheets for easy peeling."
+          },
+          {
+            "q": "What's the most cost-effective option?",
+            "a": "These **Premium Paper** stickers are our most budget-friendly choice for indoor labelling."
+          },
+          {
+            "q": "Do you offer cheaper pre-cut sizes?",
+            "a": "Yes—**pre-cut paper labels** in common shapes/sizes are available and typically cheaper. See the variant link."
+          }
+        ],
+        "related_products": ["white-waterproof-vinyl", "sticker-sheets", "roll-labels"],
+        "ranking_hints": { "cost": 0.95, "durability": 0.4, "waterproof": 0.0, "eco": 0.6 }
+      },
     {
       "id": "hard-floor-long-term",
       "title": "Long-Term Hard Floor Graphics",
