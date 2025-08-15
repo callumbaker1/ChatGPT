@@ -1,0 +1,86 @@
+[
+    {
+      "id": "floor-vinyl-indoor",
+      "title": "Indoor Floor Vinyl",
+      "url": "https://www.stickershop.co.uk/products/indoor-floor-vinyl",
+      "image": "https://www.stickershop.co.uk/cdn/images/indoor-floor-vinyl.jpg",
+      "price": 18.0,
+      "currency": "GBP",
+      "unit": "per m²",
+      "tags": ["indoor", "hard-floor", "low-pile-carpet", "short-to-mid-term", "R10", "budget", "popular"],
+      "pitch": "Durable indoor graphics for smooth hard floors and low-pile carpet tiles with R10 slip rating.",
+      "features": [
+        "R10 slip certified",
+        "Removable adhesive—low residue",
+        "Works on tile, sealed concrete, vinyl; low-pile carpet tiles",
+        "No extra laminate required"
+      ],
+      "suitability": [
+        "Indoor only",
+        "Typical life 6–12 months (site dependent)"
+      ]
+    },
+    {
+      "id": "floor-vinyl-outdoor",
+      "title": "Outdoor Floor Vinyl",
+      "url": "https://www.stickershop.co.uk/products/outdoor-floor-vinyl",
+      "image": "https://www.stickershop.co.uk/cdn/images/outdoor-floor-vinyl.jpg",
+      "price": 26.0,
+      "currency": "GBP",
+      "unit": "per m²",
+      "tags": ["outdoor", "concrete", "asphalt", "anti-slip", "directional", "events", "durable"],
+      "pitch": "Textured, anti-slip outdoor graphics for concrete and asphalt—great for events and wayfinding.",
+      "features": [
+        "Designed for exterior pavements",
+        "High-tack adhesive",
+        "Anti-slip textured face",
+        "Weather and UV resistant"
+      ],
+      "suitability": [
+        "Outdoor use",
+        "Typical life up to 12 months (conditions dependent)"
+      ]
+    },
+    {
+      "id": "carpet-graphic-short-term",
+      "title": "Short-Term Carpet Graphics",
+      "url": "https://www.stickershop.co.uk/products/carpet-floor-stickers",
+      "image": "https://www.stickershop.co.uk/cdn/images/carpet-floor-stickers.jpg",
+      "price": 21.0,
+      "currency": "GBP",
+      "unit": "per m²",
+      "tags": ["carpet", "events", "short-term", "retail", "anti-slip"],
+      "pitch": "Event-friendly carpet decals that stay put yet remove cleanly.",
+      "features": [
+        "Optimised for carpet fibres",
+        "Removable adhesive",
+        "Anti-slip surface",
+        "Ideal for promotions and exhibitions"
+      ],
+      "suitability": [
+        "Indoor carpet (including many commercial tiles)",
+        "Typical life up to 3 months"
+      ]
+    },
+    {
+      "id": "hard-floor-long-term",
+      "title": "Long-Term Hard Floor Graphics",
+      "url": "https://www.stickershop.co.uk/products/long-term-hard-floor-graphics",
+      "image": "https://www.stickershop.co.uk/cdn/images/long-term-hard-floor-graphics.jpg",
+      "price": 29.0,
+      "currency": "GBP",
+      "unit": "per m²",
+      "tags": ["indoor", "hard-floor", "long-term", "anti-slip", "retail", "malls"],
+      "pitch": "Premium long-life graphics for malls and high-traffic areas with an anti-slip finish.",
+      "features": [
+        "Built for heavy footfall",
+        "Anti-slip rated surface",
+        "High durability print",
+        "Low-residue removal"
+      ],
+      "suitability": [
+        "Indoor hard floors only",
+        "Typical life 12+ months (site dependent)"
+      ]
+    }
+  ]
