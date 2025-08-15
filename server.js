@@ -1,25 +1,41 @@
-// server.js (ESM)
+// server.js (ESM) — StickerShop AI
 import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+// ---------------- Paths & config ----------------
+const __filename = fileURLToPath(import.meta.url);
+const __dirname  = path.dirname(__filename);
 
-app.get('/', (_req, res) => {
-  res.send('Stickershop AI API is running');
-});
+const PORT   = process.env.PORT || 3000;
+const APIKEY = process.env.OPENAI_API_KEY;
 
-app.post('/api/chat', async (req, res) => {
-  const apiKey = process.env.OPENAI_API_KEY;
-  if (!apiKey) return res.status(500).send('Missing OPENAI_API_KEY');
+// ---------------- Load catalogue (optional) ----------------
+const CATALOG_PATH = path.join(__dirname, 'products.json');
+let CATALOG = [];
+try {
+  if (fs.existsSync(CATALOG_PATH)) {
+    CATALOG = JSON.parse(fs.readFileSync(CATALOG_PATH, 'utf8'));
+  }
+} catch (err) {
+  console.warn('products.json failed to load:', err.message);
+}
 
-  // client sends: { messages: [...], context: "AI_KNOWLEDGE_JSON: {...}\nVISIBLE_TEXT: ..." }
-  const { messages = [], context = '' } = req.body || {};
+// Trim catalogue for the model (fewer tokens)
+const catalogForLLM = CATALOG.map(p => ({
+  id: p.id,
+  title: p.title,
+  price: p.price,
+  currency: p.currency || 'GBP',
+  tags: p.tags || [],
+  pitch: p.pitch || ''
+}));
 
-  // Softer policy: prioritise page data, but allow generic guidance when needed.
-  const policy = `
+// ---------------- Your policy (kept) ----------------
+const policy = `
 You are StickerShop’s website assistant. Speak as "we"/"our" (first person plural).
 SOURCE PRIORITY:
 1) If PAGE_CONTEXT contains an "AI_KNOWLEDGE_JSON" block, treat that JSON as authoritative.
@@ -38,25 +54,81 @@ FORMAT:
 - Keep it concise and friendly.
 `;
 
-  // Put the whole context in the system message so the model always sees it
-  const systemWithContext = `${policy}\n\nPAGE_CONTEXT START\n${String(context).slice(0, 12000)}\nPAGE_CONTEXT END`;
+// Small, additive guidance so the model knows how to surface products
+const productGuidance = `
+You have access to a small product catalogue (IDs and basics) for recommendations when the user asks for suggestions or comparisons.
+Only use it when relevant. Never invent products or prices.
 
+Catalogue (IDs and basics):
+${JSON.stringify(catalogForLLM)}
+
+If you decide to recommend, list up to 3 items in your Markdown answer (titles only),
+and then END your message with a single line exactly like:
+PRODUCTS_JSON=[{"id":"<id1>","note":"why"}, {"id":"<id2>","note":"why"}]
+Do not mention this JSON line in the visible text.
+`;
+
+// ---------------- Utilities ----------------
+/**
+ * Extract a trailing PRODUCTS_JSON=[...] line.
+ * Returns: { clean: string, items: fullProductObjects[] }
+ */
+function extractProductsFromReply(text) {
+  const m = String(text).match(/PRODUCTS_JSON=(\[.*?\])\s*$/);
+  if (!m) return { clean: String(text).trim(), items: [] };
+
+  let ids = [];
+  try { ids = JSON.parse(m[1]); } catch { ids = []; }
+
+  const items = ids
+    .map(x => CATALOG.find(p => p.id === x.id))
+    .filter(Boolean);
+
+  const clean = String(text).replace(/PRODUCTS_JSON=\[.*?\]\s*$/, '').trim();
+  return { clean, items };
+}
+
+// ---------------- App ----------------
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+// Health/debug
+app.get('/', (_req, res) => res.send('Stickershop AI API is running'));
+app.get('/health', (_req, res) => res.json({ ok: true, products: CATALOG.length }));
+app.get('/api/products', (_req, res) => res.json({ count: CATALOG.length, products: CATALOG }));
+
+// Chat endpoint
+app.post('/api/chat', async (req, res) => {
   try {
+    if (!APIKEY) return res.status(500).send('Missing OPENAI_API_KEY');
+
+    const { messages = [], context = '' } = req.body || {};
+
+    const messagesForOpenAI = [
+      // Your policy first
+      { role: 'system', content: policy.trim() },
+      // Page context (authoritative JSON beats text per your policy)
+      ...(context
+        ? [{ role: 'system', content: `PAGE_CONTEXT:\n${String(context).slice(0, 3000)}` }]
+        : []),
+      // Non-invasive product guidance (only used when relevant)
+      ...(catalogForLLM.length ? [{ role: 'system', content: productGuidance.trim() }] : []),
+      // User/assistant history (keep short)
+      ...messages.slice(-12)
+    ];
+
     const body = {
       model: 'gpt-4o-mini',
-      messages: [
-        { role: 'system', content: systemWithContext },
-        // keep only the tail of the conversation to stay under token limits
-        ...messages.slice(-12)
-      ],
-      temperature: 0.5,      // a bit more relaxed vs 0.3–0.4
-      max_tokens: 800
+      temperature: 0.4,
+      max_tokens: 700,
+      messages: messagesForOpenAI
     };
 
     const resp = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${apiKey}`,
+        'Authorization': `Bearer ${APIKEY}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(body)
@@ -68,13 +140,18 @@ FORMAT:
       return res.status(500).send(data?.error?.message || 'OpenAI request failed');
     }
 
-    const reply = data?.choices?.[0]?.message?.content?.trim() || '';
-    res.json({ reply });
+    const raw = data?.choices?.[0]?.message?.content || '';
+    const { clean, items } = extractProductsFromReply(raw);
+
+    res.json({ reply: clean, products: items });
+
   } catch (err) {
-    console.error(err);
+    console.error('Server error:', err);
     res.status(500).send('Server error');
   }
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`API listening on :${PORT}`));
+// ---------------- Start ----------------
+app.listen(PORT, () => {
+  console.log(`API listening on :${PORT}`);
+});
