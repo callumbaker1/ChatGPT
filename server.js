@@ -134,10 +134,20 @@ policies) that aren't in these articles.
 ARTICLES_JSON:
 ${JSON.stringify(ARTICLES.map(a => ({ handle: a.handle, title: a.title, category: a.category, text: a.text })))}
 
-If you draw on one or more articles to answer, END your message with a single line exactly like:
-SOURCES_JSON=[{"handle":"<handle1>"}, {"handle":"<handle2>"}]
-List at most 3, most relevant first. Do not mention this JSON line in the visible text.
-If no article was relevant, omit the SOURCES_JSON line entirely.
+MANDATORY LAST LINE - this is not optional:
+Whenever your answer draws on ANY article(s) above (which will be true for almost every
+support question), the VERY LAST LINE of your reply - after everything else, on its own
+line - MUST be exactly this format, with no other text after it:
+SOURCES_JSON=[{"handle":"<handle1>"},{"handle":"<handle2>"}]
+List the 1-3 most relevant article handles, most relevant first, using the exact "handle"
+value from ARTICLES_JSON. Only omit this line if the question was completely unrelated to
+anything in the article library. Never mention or explain this line to the user - it is
+parsed out before they see your reply.
+
+Example of a correctly formatted reply (structure only, not real content):
+### Heading
+Some helpful answer text.
+SOURCES_JSON=[{"handle":"what-is-bleed-and-why-do-i-need-it"}]
 `;
 
 // Small, additive guidance so the model knows how to surface products
