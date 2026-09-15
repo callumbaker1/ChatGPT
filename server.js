@@ -24,6 +24,19 @@ try {
   console.warn('products.json failed to load:', err.message);
 }
 
+// ---------------- Load help-center articles (optional) ----------------
+// Generated from StickerShop-Theme-New/scripts/help-center/content.json -
+// see that repo for the source of truth; this is a plain-text export.
+const ARTICLES_PATH = path.join(__dirname, 'articles.json');
+let ARTICLES = [];
+try {
+  if (fs.existsSync(ARTICLES_PATH)) {
+    ARTICLES = JSON.parse(fs.readFileSync(ARTICLES_PATH, 'utf8'));
+  }
+} catch (err) {
+  console.warn('articles.json failed to load:', err.message);
+}
+
 // ---------------- Normalisers for product objects ----------------
 // Make an absolute/valid-ish URL from a variety of shapes.
 function normalizeUrl(u) {
@@ -91,9 +104,13 @@ const policy = `
 You are StickerShop’s website assistant. Speak as "we"/"our" (first person plural).
 SOURCE PRIORITY:
 1) If PAGE_CONTEXT contains an "AI_KNOWLEDGE_JSON" block, treat that JSON as authoritative.
-2) Otherwise use the rest of PAGE_CONTEXT text.
-3) If the page doesn’t cover it, you MAY give general UK-relevant guidance, but keep it generic.
-   Do NOT invent precise prices, lead times, SKUs, or certifications not in the page.
+2) Otherwise, if the question is about help/support topics (artwork setup, materials, ordering,
+   proofing, delivery, accounts, etc.), use the ARTICLES corpus provided below - it is your
+   primary source of truth for support questions and is authoritative over general knowledge.
+3) Otherwise use the rest of PAGE_CONTEXT text.
+4) If neither covers it, you MAY give general UK-relevant guidance, but keep it generic.
+   Do NOT invent precise prices, lead times, SKUs, policies, or certifications not in the
+   articles or page context.
 When you rely on general guidance, briefly prefix a line like "General guidance:".
 
 Be concise, friendly and helpful. Use short paragraphs or bullets where it aids clarity.
@@ -104,6 +121,23 @@ FORMAT:
 - Use **bold** labels and bullet lists where helpful.
 - Avoid code fences unless showing code.
 - Keep it concise and friendly.
+`;
+
+// Small, additive guidance so the model knows how to use the help-centre
+// article corpus and cite its sources - mirrors the product guidance below.
+const articleGuidance = `
+You have access to the full StickerShop Help & Support article library below (ARTICLES_JSON).
+Use it as your primary source for any support/help question - artwork setup, materials,
+ordering, proofing, delivery, accounts, etc. Do not invent facts (numbers, timeframes,
+policies) that aren't in these articles.
+
+ARTICLES_JSON:
+${JSON.stringify(ARTICLES.map(a => ({ handle: a.handle, title: a.title, category: a.category, text: a.text })))}
+
+If you draw on one or more articles to answer, END your message with a single line exactly like:
+SOURCES_JSON=[{"handle":"<handle1>"}, {"handle":"<handle2>"}]
+List at most 3, most relevant first. Do not mention this JSON line in the visible text.
+If no article was relevant, omit the SOURCES_JSON line entirely.
 `;
 
 // Small, additive guidance so the model knows how to surface products
@@ -147,6 +181,26 @@ function extractProductsFromReply(text) {
   return { clean, items };
 }
 
+/**
+ * Extract a trailing SOURCES_JSON=[...] line (help-article citations).
+ * Returns: { clean: string, sources: {handle,title,url,category}[] }
+ */
+function extractSourcesFromReply(text) {
+  const m = String(text).match(/SOURCES_JSON=(\[.*?\])\s*$/);
+  if (!m) return { clean: String(text).trim(), sources: [] };
+
+  let refs = [];
+  try { refs = JSON.parse(m[1]); } catch { refs = []; }
+
+  const sources = refs
+    .map((r) => ARTICLES.find((a) => a.handle === r.handle))
+    .filter(Boolean)
+    .map((a) => ({ handle: a.handle, title: a.title, url: a.url, category: a.category }));
+
+  const clean = String(text).replace(/SOURCES_JSON=\[.*?\]\s*$/, '').trim();
+  return { clean, sources };
+}
+
 // ---------------- App ----------------
 const app = express();
 app.use(cors());
@@ -154,7 +208,7 @@ app.use(express.json());
 
 // Health/debug
 app.get('/', (_req, res) => res.send('Stickershop AI API is running'));
-app.get('/health', (_req, res) => res.json({ ok: true, products: CATALOG.length }));
+app.get('/health', (_req, res) => res.json({ ok: true, products: CATALOG.length, articles: ARTICLES.length }));
 app.get('/api/products', (_req, res) => {
   // Always return normalised products for the UI
   const out = CATALOG.map(pickForClient);
@@ -177,6 +231,8 @@ app.post('/api/chat', async (req, res) => {
         : []),
       // Non-invasive product guidance (only used when relevant)
       ...(catalogForLLM.length ? [{ role: 'system', content: productGuidance.trim() }] : []),
+      // Help-centre article corpus (only used when relevant)
+      ...(ARTICLES.length ? [{ role: 'system', content: articleGuidance.trim() }] : []),
       // User/assistant history (keep short)
       ...messages.slice(-12)
     ];
@@ -204,10 +260,11 @@ app.post('/api/chat', async (req, res) => {
     }
 
     const raw = data?.choices?.[0]?.message?.content || '';
-    const { clean, items } = extractProductsFromReply(raw);
+    const { clean: cleanOfSources, sources } = extractSourcesFromReply(raw);
+    const { clean, items } = extractProductsFromReply(cleanOfSources);
 
-    // items are already client-shaped via pickForClient in extractProductsFromReply
-    res.json({ reply: clean, products: items });
+    // items/sources are already client-shaped via their respective extractors
+    res.json({ reply: clean, products: items, sources });
 
   } catch (err) {
     console.error('Server error:', err);

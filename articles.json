@@ -1,0 +1,275 @@
+[
+  {
+    "handle": "what-is-the-difference-between-cmyk-and-rgb",
+    "title": "What is the difference between CMYK and RGB?",
+    "category": "Artwork & Print Setup",
+    "url": "/blogs/help-support/what-is-the-difference-between-cmyk-and-rgb",
+    "text": "We print using CMYK. Occasionally, artwork is set up using the RGB colour mode instead - you can see the slight difference between the two above. RGB RGB is a colour mode made up of Red, Green and Blue light. It's used on screens, so it's backlit, producing bright, vibrant colours. This method of printing isn't available on a digital press - we'll always print the closest CMYK equivalent instead. CMYK CMYK is the colour mode we use to print - it's the standard for most digital print methods, with colours made up from Cyan, Magenta, Yellow and Black. As you can see from the example above, some of the brighter, more vivid colours aren't always achievable in CMYK. What we recommend Set your document to CMYK before you start designing, if your software allows it Avoid pure, screen-bright neons and expect them to print slightly muted For exact colour matching (e.g. brand colours), give us a Pantone (PMS) reference rather than just a hex code What happens if I send an RGB file? We'll convert it automatically before printing. In most cases the shift is minor, but for colour-critical jobs we always recommend supplying CMYK or a Pantone reference from the start. Quick summary Screens = RGB,"
+  },
+  {
+    "handle": "what-is-bleed-and-why-do-i-need-it",
+    "title": "What is bleed and why do I need it?",
+    "category": "Artwork & Print Setup",
+    "url": "/blogs/help-support/what-is-bleed-and-why-do-i-need-it",
+    "text": "Bleed is the part of your artwork that extends past the edge of the label. This is usually the background of your artwork, and it gets trimmed off during printing. Why do we have bleed? We have bleed to make sure your labels have no white edges. This ensures the print is right to the edge of the label if there's any slight natural movement when printing - cutting is a physical, mechanical process, and even a fraction of a millimetre of movement is completely normal. How much should I add? We require the background of your artwork to extend at least 3mm past the edge of the label to make up its bleed. How do I set it up? Most design tools have the option to input your bleed when starting a new project. Other programs, such as Photoshop, don't have this feature built in, so you'll need to make your artwork 3mm larger on each side manually. Example: if your label size is 50mm x 50mm, set your artwork up to 56mm x 56mm (3mm on each side). What happens if I don't include bleed? White edges can appear around the trimmed sticker, and we may need to contact you before printing, which can delay your order. If you're ever unsure, don't worry - we always check your artwork before printing and"
+  },
+  {
+    "handle": "what-is-the-safe-zone-and-how-do-i-avoid-cut-off-artwork",
+    "title": "What is the safe zone and how do I avoid cut-off artwork?",
+    "category": "Artwork & Print Setup",
+    "url": "/blogs/help-support/what-is-the-safe-zone-and-how-do-i-avoid-cut-off-artwork",
+    "text": "The safe zone is the 'no cross' zone at the edge of the label. We recommend keeping all text, borders and important content within the safe zone boundaries - this ensures nothing gets cut off during print. Why do we have a safe zone? We have a safe zone to make sure nothing gets cut off when printing. If you had text going right to the edge of the label, there's a chance it will get trimmed off due to the natural movement that happens during cutting. The only part of your artwork that should cross into this area is the background. What size is it? You should aim to keep any text, borders or important information at least 2.5mm away from the trim lines (the edge of the label). Quick summary Safe zone = the margin where text/logos are guaranteed not to be trimmed off Keep important content at least 2.5mm inside the cut line Backgrounds can bleed to the edge; text and logos shouldn't"
+  },
+  {
+    "handle": "how-do-i-size-my-artwork-correctly-for-stickers",
+    "title": "How do I size my artwork correctly for stickers?",
+    "category": "Artwork & Print Setup",
+    "url": "/blogs/help-support/how-do-i-size-my-artwork-correctly-for-stickers",
+    "text": "Setting your artboard up at the right size from the start is the easiest way to make sure your finished stickers look exactly as designed. Getting started Set your artboard to the exact finished size of your sticker (e.g. 100mm x 100mm) Add 3mm bleed on every side around that finished size Design at full scale where possible - avoid scaling up a small image, which loses sharpness Custom shapes For custom die-cut shapes, design around the finished outline first, then extend your background/colour out into the bleed. We'll always create an accurate cut path around your artwork and send a proof for approval before anything is printed. Quick summary Set your artboard to finished size + 3mm bleed Design at full scale to keep detail sharp We'll send a proof before printing custom shapes either way"
+  },
+  {
+    "handle": "minimum-font-sizes-for-print",
+    "title": "What are the minimum text sizes for print?",
+    "category": "Artwork & Print Setup",
+    "url": "/blogs/help-support/minimum-font-sizes-for-print",
+    "text": "Small text can look fine on screen but become blurry or illegible once printed at sticker size, especially on smaller labels. Our recommendations Keep body text no smaller than 6pt (around 2mm tall) for single-colour text For fine or thin fonts, go slightly larger - 7-8pt - to keep detail crisp Avoid very thin/light font weights at small sizes, as fine strokes can drop out during printing Outlining your fonts If you're supplying a PDF or vector file, it's good practice to convert your text to outlines (curves/paths) before sending it over. This means the exact font renders correctly even if we don't have that specific font installed. Quick summary Minimum ~6pt for body text, slightly larger for thin fonts Avoid ultra-light font weights at small sizes Outline your fonts before exporting a print-ready file"
+  },
+  {
+    "handle": "accepted-file-types-for-print",
+    "title": "What file types do you accept for print?",
+    "category": "Artwork & Print Setup",
+    "url": "/blogs/help-support/accepted-file-types-for-print",
+    "text": "We accept a wide range of file formats - above are the most popular. Best formats PDF (print-ready, with bleed) - our preferred format, especially from Illustrator, InDesign or Canva AI / EPS - ideal for vector artwork like logos and flat colour designs PNG (high resolution, transparent background) - great for photographic or complex designs Accepted but not ideal JPG is fine for photos, but we'd avoid it for text and logos, since it can introduce blur around sharp edges. Don't have your artwork in any of these formats? Don't panic - we may still be able to use it. Just drop us an email at hello@stickershop.co.uk and attach your artwork, and we'll advise. Quick summary PDF is our preferred format for most jobs Use AI/EPS for vector logos and flat colour designs Not sure? Email your file over and we'll check it for you"
+  },
+  {
+    "handle": "what-image-resolution-and-dpi-do-i-need-for-print",
+    "title": "What image resolution and DPI do I need for print?",
+    "category": "Artwork & Print Setup",
+    "url": "/blogs/help-support/what-image-resolution-and-dpi-do-i-need-for-print",
+    "text": "We require your artwork to be a minimum of 350dpi for the best printed results. 350dpi As you can see in the example above, artwork at 350dpi is crisp and clear. This produces high quality printed results. 72dpi Very low resolution and pixelated - 72dpi (the standard for web images) won't produce good printed results. Why web images often aren't sharp enough Images pulled from websites or social media are usually optimised for screens at 72 DPI - roughly a fifth of the detail we need for crisp print. They can look fine at a small size on screen but appear soft or pixelated once printed. A note on text For any artwork with text, we recommend it be at least 6pt. Use a vector PDF wherever possible for the sharpest results. Quick summary 350dpi minimum at your finished sticker size Web/social images are usually too low-resolution for sharp printing If unsure, send us the file and we'll flag it before printing"
+  },
+  {
+    "handle": "what-fonts-and-font-weights-work-best-for-print",
+    "title": "What fonts and font weights work best for print?",
+    "category": "Artwork & Print Setup",
+    "url": "/blogs/help-support/what-fonts-and-font-weights-work-best-for-print",
+    "text": "Font choice makes a bigger difference to print quality than most people expect, especially at small sticker sizes. What works well Medium-to-bold weights hold their shape better at small sizes than thin/light weights Simple, clean typefaces reproduce more reliably than highly decorative or script fonts at small sizes Outlining fonts Always convert text to outlines (sometimes called \"create outlines\" or \"expand\") before exporting your final print file. This locks in the exact letterforms, so there's no risk of a font substitution changing your design if we don't have that exact font installed. Quick summary Medium/bold weights print more reliably than thin ones at small sizes Keep decorative/script fonts for larger elements where detail can hold up Always outline your fonts before exporting"
+  },
+  {
+    "handle": "how-do-i-export-my-canva-design-correctly-for-print",
+    "title": "How do I export my Canva design correctly for print?",
+    "category": "Artwork & Print Setup",
+    "url": "/blogs/help-support/how-do-i-export-my-canva-design-correctly-for-print",
+    "text": "Canva is great for putting a design together quickly, and it's easy to export something print-ready as long as you set it up correctly from the start. Before you design Create a custom-size design matching your finished sticker size plus 3mm bleed on each side (e.g. for a 100mm x 100mm sticker, set your canvas to 106mm x 106mm) Keep important text and logos away from the outer edge, inside the safe zone Exporting Use Share → Download and choose PDF Print (not PDF Standard, which is lower quality) Make sure \"Crop marks and bleed\" is switched on if that option is available on your Canva plan Flatten any transparent elements before exporting where possible Quick summary Build your canvas at finished size + 3mm bleed Export as PDF Print, not PDF Standard Enable crop marks/bleed if your plan supports it"
+  },
+  {
+    "handle": "how-do-i-set-up-artwork-for-sticker-sheets",
+    "title": "How do I set up artwork for sticker sheets?",
+    "category": "Artwork & Print Setup",
+    "url": "/blogs/help-support/how-do-i-set-up-artwork-for-sticker-sheets",
+    "text": "We recommend setting up your sticker sheets yourself, to make sure you're happy with how they look before they go to print. Space between stickers You should aim to keep all stickers at least 4mm away from each other. Space at the edge of the sheet You should aim to keep all stickers at least 10mm away from the edge of the sticker sheet. What's the minimum size of each sticker? The smallest stickers we cut on a sheet are 10mm . There's no maximum size, as long as they fit within the sheet and the guides. How do I set up cut paths? If you're confident in Adobe Illustrator, you can set up the cut paths yourself by adding a key line stroke around each sticker. Otherwise, our artwork team will add the cut paths when we come to proof your order. Cut paths must be set at least 2mm away from the edge of your sticker, or at least 2mm inside your artwork, so there's bleed to work with. Quick summary 4mm minimum spacing between stickers 10mm minimum spacing from the sheet edge 10mm minimum sticker size, no maximum Not confident setting up cut paths? We'll add them for you during proofing"
+  },
+  {
+    "handle": "which-sticker-material-should-you-choose",
+    "title": "Which sticker material should you choose?",
+    "category": "Material & Product Help",
+    "url": "/blogs/help-support/which-sticker-material-should-you-choose",
+    "text": "We print on a wide range of materials, so it's worth knowing the basics before you order. Everyday vinyl Waterproof Vinyl - our most popular all-rounder, durable and weatherproof Clear Waterproof Vinyl - prints only where there's ink, so the background shows through Block Out Vinyl - has an opaque middle layer, ideal for covering old branding or signage Laminated & high tack Laminated Stickers - a clear protective layer on top for extra scratch and UV resistance High Tack Stickers - a stronger adhesive for tricky or textured surfaces Metallics & specialty finishes Metallic, Mirror and Brushed vinyl (in Silver, Gold and Rose Gold), plus Glitter, Rainbow and Holographic Mosaic finishes for standout designs. Paper & eco options Kraft, Biodegradable and Antique paper stickers for a natural, eco-friendly look. Not sure which is right for your job? Get in touch and we'll point you the right way."
+  },
+  {
+    "handle": "when-should-i-choose-waterproof-vinyl",
+    "title": "When should I choose waterproof vinyl?",
+    "category": "Material & Product Help",
+    "url": "/blogs/help-support/when-should-i-choose-waterproof-vinyl",
+    "text": "Waterproof Vinyl is our most popular material, and for good reason - it's a durable, weather-resistant all-rounder that suits the vast majority of sticker and label jobs. Good for Product labels and packaging Outdoor use - vehicle stickers, window stickers, signage Anywhere the sticker might get wet, knocked about, or exposed to sunlight Waterproof vs Clear Waterproof Standard Waterproof Vinyl has a white background, so your design's colours print as designed. Clear Waterproof Vinyl only prints where there's ink, so the surface underneath shows through anywhere your design is transparent - great for glass, jars, or coloured packaging where you want a \"no background\" look. Quick summary Our most popular, general-purpose material Fully waterproof and UV-resistant Choose Clear Waterproof if you want the surface underneath to show through"
+  },
+  {
+    "handle": "what-is-block-out-vinyl-and-when-do-i-need-it",
+    "title": "What is block out vinyl and when do I need it?",
+    "category": "Material & Product Help",
+    "url": "/blogs/help-support/what-is-block-out-vinyl-and-when-do-i-need-it",
+    "text": "Block Out Vinyl has an opaque middle layer sandwiched between the adhesive and the printed surface, so nothing underneath - old branding, a previous sticker, a coloured surface - shows through. Good for Covering old signage, branding or a previous sticker Applying light-coloured designs onto dark or patterned surfaces Window stickers where you don't want light bleeding through from behind How it's different from standard vinyl Standard Waterproof Vinyl already has a white base and blocks most backgrounds reasonably well, but Block Out Vinyl goes a step further with its dedicated opaque layer - the safest choice if total coverage really matters. Quick summary Fully opaque - nothing shows through from behind Best for covering existing surfaces or branding Ideal for window stickers where light-blocking matters"
+  },
+  {
+    "handle": "should-i-choose-a-laminated-sticker",
+    "title": "Should I choose a laminated sticker?",
+    "category": "Material & Product Help",
+    "url": "/blogs/help-support/should-i-choose-a-laminated-sticker",
+    "text": "Lamination adds a clear protective layer over the top of your printed design, giving extra resistance to scratches, sunlight and general wear. Why laminate? Extends the life of your sticker, especially outdoors or with frequent handling Protects against fading from UV exposure Gives a slightly glossier, more premium finish White vs Clear Laminated White Laminated Stickers have a solid white background, while Clear Laminated Stickers only show ink where your design has colour, letting the surface underneath show through - both get the same protective top layer. Quick summary Adds scratch and UV protection on top of your print Choose White for a solid background, Clear for a see-through one Good choice for anything that'll see heavy handling or outdoor exposure"
+  },
+  {
+    "handle": "what-makes-high-tack-different",
+    "title": "What makes high tack stickers different?",
+    "category": "Material & Product Help",
+    "url": "/blogs/help-support/what-makes-high-tack-different",
+    "text": "High Tack Stickers use a stronger adhesive than our standard vinyl, designed to hold firm on surfaces that are trickier to stick to. Good for Textured, uneven or slightly rough surfaces Low-energy plastics and surfaces that standard adhesive can struggle with Anywhere you need extra peace of mind that the sticker won't lift at the edges Anything to watch out for The stronger adhesive means high tack stickers are genuinely permanent - they're not designed to be repositioned or easily removed once applied, so it's worth double-checking placement before pressing down. Quick summary Stronger adhesive for tricky or textured surfaces Genuinely permanent once applied Good option if you've had stickers lift or peel before"
+  },
+  {
+    "handle": "metallic-mirror-and-brushed-vinyl-explained",
+    "title": "Metallic, Mirror and Brushed vinyl explained",
+    "category": "Material & Product Help",
+    "url": "/blogs/help-support/metallic-mirror-and-brushed-vinyl-explained",
+    "text": "All three of these finishes bring a premium, reflective look to your stickers, in Silver, Gold and Rose Gold - the difference is in how reflective and textured each one is. Metallic Vinyl A subtle metallic sheen with a soft, satin-like shimmer - great for adding a premium touch without being too bold. Mirror Vinyl Our most reflective option - a genuine mirror-like, chrome finish that really stands out. Brushed Vinyl Has a fine linear texture, similar to brushed metal, for a more industrial, tactile look. Quick summary Metallic = subtle shimmer Mirror = maximum reflectivity, chrome-like Brushed = fine linear, brushed-metal texture All three available in Silver, Gold and Rose Gold"
+  },
+  {
+    "handle": "glitter-rainbow-and-holographic-stickers-explained",
+    "title": "Glitter, Rainbow and Holographic stickers explained",
+    "category": "Material & Product Help",
+    "url": "/blogs/help-support/glitter-rainbow-and-holographic-stickers-explained",
+    "text": "For designs that need to really catch the eye, these three specialty finishes are some of our most eye-catching options. Glitter Vinyl A sparkling, glitter-flecked finish that catches the light beautifully - popular for events, packaging and product branding that wants to feel a bit special. Holographic Rainbow Vinyl Shifts through rainbow colours depending on the angle and light, for a genuinely eye-catching, iridescent effect. Holographic Mosaic Vinyl A sparkling, mosaic-patterned holographic finish - similarly colour-shifting, with a distinct fragmented texture. Quick summary All three are bold, standout specialty finishes Great for events, product branding and anything that needs to catch the eye Best suited to simpler designs, since the finish itself does a lot of the visual work"
+  },
+  {
+    "handle": "kraft-biodegradable-and-antique-paper-stickers",
+    "title": "Kraft, Biodegradable and Antique paper stickers",
+    "category": "Material & Product Help",
+    "url": "/blogs/help-support/kraft-biodegradable-and-antique-paper-stickers",
+    "text": "If you're after a natural, eco-friendly look - or want a more sustainable material choice - our paper range is worth a look. Kraft Paper A natural brown, recycled-look paper stock, popular for rustic, artisan or eco-conscious branding. Biodegradable Paper Our most environmentally-friendly option, designed to break down naturally - a good fit if sustainability is a priority for your brand. Antique Paper A textured, off-white finish with a vintage, aged look and feel. Anything to consider? Paper stickers aren't waterproof in the way our vinyl range is, so they suit indoor use, packaging and short-to-medium term applications better than anything exposed to the elements long-term. Quick summary Kraft = natural brown, recycled look Biodegradable = most eco-friendly option Antique = textured, vintage look Better suited to indoor/packaging use than long-term outdoor exposure"
+  },
+  {
+    "handle": "how-does-the-ordering-process-work",
+    "title": "How does the ordering process work?",
+    "category": "Ordering & Proofing Help",
+    "url": "/blogs/help-support/how-does-the-ordering-process-work",
+    "text": "Ordering with us is designed to be simple, whether you already have finished artwork or need to build your sticker from scratch. The steps Choose your product, material, shape and size Upload your artwork (or use our built-in artwork tool to position and check it) Check your proof and confirm everything looks right Add to cart and check out - as a guest or with an account What happens after I order? We check your artwork and send a proof for approval before anything goes to print, so you always get a chance to catch anything that needs adjusting first. Quick summary Choose your options, upload artwork, check your proof, check out Every order is proofed before printing No account required - guest checkout is available"
+  },
+  {
+    "handle": "do-i-need-to-approve-a-proof-before-printing",
+    "title": "Do I need to approve a proof before printing?",
+    "category": "Ordering & Proofing Help",
+    "url": "/blogs/help-support/do-i-need-to-approve-a-proof-before-printing",
+    "text": "Yes - every order gets a proof, and we check your artwork before anything goes to print. This is your chance (and ours) to catch anything that needs adjusting before it's too late to change. What we check That your file is set up correctly (bleed, resolution, colour) That your design fits the shape and size you've chosen Anything that looks like it might not print the way you're expecting What happens next Once you approve your proof, your order moves into production - production takes 2-3 working days from approval, so the sooner you check it over, the sooner your order ships. Quick summary Every order is proofed before printing, no exceptions Production only begins once you've approved your proof Approving quickly keeps your order moving"
+  },
+  {
+    "handle": "how-do-i-submit-my-artwork-after-ordering",
+    "title": "How do I submit my artwork?",
+    "category": "Ordering & Proofing Help",
+    "url": "/blogs/help-support/how-do-i-submit-my-artwork-after-ordering",
+    "text": "You can upload your artwork directly during the ordering process using our built-in artwork tool - no need to email files separately. How it works Drag and drop your file straight onto the canvas, or click to upload Position, scale and rotate your design as needed Use the cut line, bleed, safe zone and dimension guides to check everything lines up Approve your artwork once you're happy, ready for checkout Didn't upload artwork yet? That's fine - you can still add the product to your cart and upload it afterwards, or get in touch and we'll help you sort it out before your order goes to print. Quick summary Upload directly through our artwork tool while ordering Position and check your design against the built-in guides You can always add artwork after ordering if you're not ready yet"
+  },
+  {
+    "handle": "can-i-make-changes-after-placing-an-order",
+    "title": "Can I make changes after placing an order?",
+    "category": "Ordering & Proofing Help",
+    "url": "/blogs/help-support/can-i-make-changes-after-placing-an-order",
+    "text": "In most cases, yes - as long as your order hasn't already gone to print. Since every order gets a proof before production, there's usually a window to make changes. What you can typically change Artwork amends, before you approve your proof Quantity, size or material, before production begins Once production has started Once your proof is approved and your order enters production, changes usually aren't possible - production takes 2-3 working days from approval, so this window moves quickly. Need to change something? Get in touch as soon as possible and we'll do what we can before it's too late. Quick summary Changes are usually possible before you approve your proof Once production starts, changes generally aren't possible Contact us as soon as you can if something needs changing"
+  },
+  {
+    "handle": "what-happens-if-theres-an-issue-with-my-artwork",
+    "title": "What happens if there's an issue with my artwork?",
+    "category": "Ordering & Proofing Help",
+    "url": "/blogs/help-support/what-happens-if-theres-an-issue-with-my-artwork",
+    "text": "If something in your file needs attention - low resolution, missing bleed, artwork that doesn't match your chosen shape - we'll flag it before anything is printed, as part of our standard proofing process. What we'll do Let you know exactly what the issue is and why it matters Where possible, suggest a fix or offer to make a minor adjustment for you Send you an updated proof to approve once it's sorted Why we do this We'd always rather flag an issue before printing than have you unhappy with a finished order - it can add a short delay, but it means what lands with you is what you actually wanted. Quick summary Artwork issues are caught during proofing, before printing We'll explain the issue and help you resolve it Nothing prints until your updated proof is approved"
+  },
+  {
+    "handle": "how-do-i-know-my-order-has-been-received",
+    "title": "How do I know my order has been received?",
+    "category": "Ordering & Proofing Help",
+    "url": "/blogs/help-support/how-do-i-know-my-order-has-been-received",
+    "text": "You'll get an order confirmation email as soon as your order and payment go through, followed by updates as your order moves through proofing and production. What you'll be told, and when Order confirmation - straight after checkout Proof ready for approval - once we've checked your artwork Order dispatched - once production is complete and it's on its way Didn't get a confirmation email? Double check your spam/junk folder first. If it's still not there, get in touch with your order details and we'll confirm it went through. Quick summary You'll receive an email confirmation straight after checkout Further updates follow as your order is proofed and produced Contact us if you haven't received a confirmation email"
+  },
+  {
+    "handle": "can-i-order-a-sample-before-committing-to-a-full-run",
+    "title": "Can I order a sample before committing to a full run?",
+    "category": "Ordering & Proofing Help",
+    "url": "/blogs/help-support/can-i-order-a-sample-before-committing-to-a-full-run",
+    "text": "Yes - we offer free samples, so you can check material quality before placing a full order. Want to see your actual design? If you'd like a sample of your own artwork on the material of your choice, we offer custom-printed samples for £14.99, so you can see exactly how your design and chosen material will look before committing to a larger run. Quick summary Free samples are available to check material quality Custom-printed samples of your own design are £14.99 A great way to check colour, material and finish before a full order"
+  },
+  {
+    "handle": "how-do-i-set-up-a-trade-account",
+    "title": "How do I set up a trade account?",
+    "category": "Ordering & Proofing Help",
+    "url": "/blogs/help-support/how-do-i-set-up-a-trade-account",
+    "text": "We offer trade accounts for businesses ordering regularly or in larger volumes. Getting set up Get in touch with us to discuss a trade account, and we'll talk through what suits your business best. Quick summary Trade accounts are available for regular or high-volume ordering Contact us to get set up"
+  },
+  {
+    "handle": "can-i-cancel-or-amend-my-order",
+    "title": "Can I cancel or amend my order?",
+    "category": "Ordering & Proofing Help",
+    "url": "/blogs/help-support/can-i-cancel-or-amend-my-order",
+    "text": "Because every order is custom printed, cancellations and amends are easiest before your proof has been approved and production has started. Before production starts Get in touch as soon as possible and we'll do what we can to cancel or amend your order. Once production has started Once your proof is approved, production begins quickly - typically 2-3 working days to complete - so once underway, an order generally can't be cancelled or changed. Quick summary Cancel or amend before you approve your proof, where possible Contact us as early as you can if plans change Once production starts, orders usually can't be cancelled"
+  },
+  {
+    "handle": "how-long-does-production-take",
+    "title": "How long does production take?",
+    "category": "Delivery & Turnaround",
+    "url": "/blogs/help-support/how-long-does-production-take",
+    "text": "Production takes 2-3 working days from proof approval - not from when you place your order, since every job is checked and proofed before it goes into production. Why proof approval matters for timing The clock starts once you've approved your proof, so the faster you review and approve it, the sooner your order moves into production and, in turn, the sooner it ships. Need it faster? We offer a Fast Track option at checkout for £15, which moves your order into our fast track production queue. Quick summary 2-3 working days from proof approval to completed production Approving your proof promptly keeps things moving Fast Track (£15) is available at checkout for quicker turnaround"
+  },
+  {
+    "handle": "what-delivery-options-are-available",
+    "title": "What delivery options are available?",
+    "category": "Delivery & Turnaround",
+    "url": "/blogs/help-support/what-delivery-options-are-available",
+    "text": "Once your order has been produced, we ship on a next day courier service within the UK . How it all fits together Proof approved Production - 2-3 working days Dispatched on next day courier (UK) Need it quicker? Add Fast Track at checkout for £15 to move your order into our fast track production queue and get it produced and on its way sooner. Quick summary Next day UK courier once your order is produced Total time = production (2-3 working days) + next day delivery Fast Track (£15) speeds up the production queue"
+  },
+  {
+    "handle": "what-is-fast-track-and-how-does-it-work",
+    "title": "What is Fast Track and how does it work?",
+    "category": "Delivery & Turnaround",
+    "url": "/blogs/help-support/what-is-fast-track-and-how-does-it-work",
+    "text": "Fast Track is an optional add-on at checkout for £15, which moves your order into our fast track production queue ahead of standard orders. How to add it Select Fast Track at checkout before you complete your order - it's applied to the whole order, not per item. What it changes Standard production is 2-3 working days from proof approval. Fast Track prioritises your order within that process, so it's produced sooner - once produced, it still ships on our standard next day UK courier. Quick summary £15 add-on at checkout Moves your order into the fast track production queue Speeds up production; delivery is still next day courier once dispatched"
+  },
+  {
+    "handle": "how-can-i-track-my-order",
+    "title": "How can I track my order?",
+    "category": "Delivery & Turnaround",
+    "url": "/blogs/help-support/how-can-i-track-my-order",
+    "text": "Once your order has been dispatched on our next day courier, you'll receive a shipping confirmation with tracking details, so you can follow it right up to delivery. Where to find your tracking info Check your dispatch confirmation email If you have an account, sign in to view your order status Haven't received tracking details? Tracking is only sent once your order has actually been produced and dispatched - if your order is still within its 2-3 working day production window, this is expected. Still no update after that? Get in touch and we'll chase it up. Quick summary Tracking is sent by email once your order is dispatched Check your account for order status at any time Contact us if tracking hasn't arrived after your expected production time"
+  },
+  {
+    "handle": "what-happens-if-my-order-is-delayed",
+    "title": "What happens if my order is delayed?",
+    "category": "Delivery & Turnaround",
+    "url": "/blogs/help-support/what-happens-if-my-order-is-delayed",
+    "text": "We aim to hit our standard 2-3 working day production window on every order, but if something's running behind, we'll keep you updated rather than leave you guessing. Common causes of delay A proof waiting on your approval - production can't start until it's confirmed An artwork issue that needs resolving first Exceptionally high order volumes at busy periods What to do if you're concerned Get in touch and we'll check your order's status and let you know exactly where things stand. Quick summary We aim for 2-3 working days production on every order Most delays come from a proof awaiting approval Contact us any time to check on your order's status"
+  },
+  {
+    "handle": "how-do-i-reorder-a-previous-design",
+    "title": "How do I reorder a previous design?",
+    "category": "Reorders & Account Help",
+    "url": "/blogs/help-support/how-do-i-reorder-a-previous-design",
+    "text": "Sign in with the email address you used to order, and you'll be able to see your previous orders and easily reorder using our reorder portal. How it works Sign in with your email address Find the order you'd like to repeat Reorder directly - no need to re-upload your artwork or set everything up again Want to make changes first? You can still adjust quantity, size or material before checking out again - it's the same order, just with room to tweak it. Quick summary Sign in with your order email to see past orders Reorder directly through our reorder portal Adjust quantity/size/material before checking out again if needed"
+  },
+  {
+    "handle": "do-i-need-an-account-to-order",
+    "title": "Do I need an account to order?",
+    "category": "Reorders & Account Help",
+    "url": "/blogs/help-support/do-i-need-an-account-to-order",
+    "text": "No - you can check out as a guest without creating an account. Should I create one anyway? Even without a formal account, signing in with the same email address you used to order lets you view your order history and easily reorder previous designs through our reorder portal - so it's worth using the same email each time even as a guest. Quick summary Guest checkout is available - no account required Using the same email each time still lets you view and reorder past orders"
+  },
+  {
+    "handle": "what-are-the-benefits-of-creating-an-account",
+    "title": "What are the benefits of creating an account?",
+    "category": "Reorders & Account Help",
+    "url": "/blogs/help-support/what-are-the-benefits-of-creating-an-account",
+    "text": "While guest checkout is always available, signing in with your email gives you a few extra conveniences. What you get A full view of your order history Fast, simple reordering through our reorder portal Quicker checkout next time, without re-entering your details Quick summary Not required, but makes reordering and tracking past orders easier Sign in with the same email you used at checkout"
+  },
+  {
+    "handle": "how-do-i-reset-my-password",
+    "title": "How do I reset my password?",
+    "category": "Reorders & Account Help",
+    "url": "/blogs/help-support/how-do-i-reset-my-password",
+    "text": "If you need to reset your password, select \"Forgot your password?\" on the account sign-in page and follow the link sent to your email. Didn't receive the reset email? Check your spam/junk folder Make sure you're using the same email address your account/orders are under Still no luck? Get in touch and we'll help sort it out Quick summary Use \"Forgot your password?\" on the sign-in page Reset link is sent to your account email Contact us if you don't receive it"
+  },
+  {
+    "handle": "can-i-view-my-order-history",
+    "title": "Can I view my order history?",
+    "category": "Reorders & Account Help",
+    "url": "/blogs/help-support/can-i-view-my-order-history",
+    "text": "Yes - sign in with the email address you used to order, and you'll be able to see all your previous orders in one place. Why this is useful Quickly find and reorder a previous design through our reorder portal Check the status of a recent order Keep a record of what you've ordered and when Quick summary Sign in with your order email to view order history Makes reordering and tracking past orders much easier"
+  },
+  {
+    "handle": "how-do-i-set-up-a-trade-or-business-account",
+    "title": "How do I set up a trade or business account?",
+    "category": "Reorders & Account Help",
+    "url": "/blogs/help-support/how-do-i-set-up-a-trade-or-business-account",
+    "text": "We now offer trade accounts for businesses that order regularly or in larger volumes. Getting set up Get in touch with us to discuss setting up a trade account, and we'll talk you through the details. Quick summary Trade accounts are available for regular/business ordering Contact us to get set up"
+  },
+  {
+    "handle": "who-do-i-contact-for-account-issues",
+    "title": "Who do I contact for account issues?",
+    "category": "Reorders & Account Help",
+    "url": "/blogs/help-support/who-do-i-contact-for-account-issues",
+    "text": "For anything account related - sign-in issues, updating your details, or a trade account query - our team is happy to help. Get in touch Email: hello@stickershop.co.uk Phone: 0117 329 3733 Our team is available Monday - Friday, 9:30am - 5:30pm. Quick summary Email or call us for any account-related issue Available Monday - Friday, 9:30am - 5:30pm"
+  }
+]
