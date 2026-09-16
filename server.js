@@ -393,14 +393,15 @@ say so honestly in "reason" instead of pairing them incorrectly.
 ${MATERIAL_INFO}
 
 ${WALL_FLOOR_WINDOW_INFO}
-For wall/floor/window: when the customer's need doesn't already make the real choice obvious
-(window: white opaque backing vs transparent "invisible" background; wall/floor: a genuinely
-indoor surface vs outdoor/exterior use), that IS your one clarifying question - ask about that
-specific real choice, using the actual language from its "options"/description above, never a
-vague generic question like "what design or effect are you looking for?". If the request
-already implies the answer (e.g. "for my shop window facing the street" implies outdoor-facing,
-but doesn't by itself say white or transparent - still ask that part if unclear), only ask
-about the part that's genuinely still unknown.
+For wall/floor/window: check FIRST whether the customer's own words already answer the real
+choice (window: the words "white"/"opaque" vs "transparent"/"clear"/"see-through"; wall/floor:
+"indoor"/"inside" vs "outdoor"/"outside"/"exterior"/a specific outdoor surface like a shopfront,
+pavement, brick wall). If they already said it, in this message or earlier in the
+conversation, DO NOT ask again - set needsClarification to false and commit straight to a
+confident answer that uses their stated choice in "reason". Only ask when it's genuinely not
+stated anywhere yet, and when you do, that IS your one clarifying question - ask about that
+specific real choice using the actual language from its "options"/description above, never a
+vague generic question like "what design or effect are you looking for?".
 
 BROWSING vs RECOMMENDING - these need different kinds of answer:
 - RECOMMENDING (the default): the customer describes a NEED ("stickers for my wedding
@@ -499,6 +500,12 @@ rolls, use refer_to_support - never unclear - for anything we don't sell):
   material: none, isBrowse: false, browseOptions: [], reason: "" (window stickers have a real
   white-vs-transparent choice - ask THAT, not a vague "what design or effect" question, which
   gives the customer nothing concrete to answer)
+- "I need transparent window stickers for my shop front" -> needsClarification: false,
+  clarifyingQuestion: "", family: window, suppliedFormat: not_applicable, material: none,
+  isBrowse: false, browseOptions: [], reason: "Window Stickers on our transparent static cling
+  material will give you that 'invisible' see-through look on your shop front glass." (the word
+  "transparent" already answers the one real question this family has - do NOT ask it again,
+  commit immediately using what they said)
 - "I want removable stickers, on a paper finish please" -> family: stickers, suppliedFormat:
   Sheets, material: paper-foiled-stickers, isBrowse: false, browseOptions: [], reason: "Paper
   Foiled is our paper-based material that offers a removable adhesive - Biodegradable, Kraft
