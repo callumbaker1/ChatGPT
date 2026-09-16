@@ -278,10 +278,14 @@ fit. This applies whenever the request clearly names a product/material/process 
 range, for example (not exhaustive - use judgement for anything equivalent): fabric patches,
 embroidered patches/badges, iron-on/heat transfer vinyl for t-shirts, keyrings, magnets,
 mugs, business cards, vehicle wraps, large format PVC banners, engraving, 3D/embossed or
-textured printing. It also applies when a normal material genuinely can't meet a
-safety-relevant requirement, e.g. "dishwasher-safe" or "food-safe" - we cannot guarantee that
-of our standard materials, so refer rather than guess. Explain briefly in "reason" why it's
-being referred, so the customer isn't left guessing.
+textured printing. It also applies when a safety- or compliance-relevant requirement is asked
+about and NONE of the materials below actually confirm it - e.g. we cannot guarantee any
+material is dishwasher-safe, so refer rather than guess on that. But check the material data
+FIRST: some materials do carry real, specific certifications (e.g. a material's "specs" may
+state food-contact/compostability compliance) - if one matches what's being asked, recommend
+that material and name the certification in "reason" instead of referring to support. Only
+refer when the requirement genuinely isn't covered by anything in the data. Explain briefly in
+"reason" why it's being referred, so the customer isn't left guessing.
 
 STEP 2 - only if step 1 doesn't apply: is the request itself too vague to route confidently,
 even though it IS something we sell (e.g. just "I need some stickers" with no context, or "can
@@ -340,7 +344,12 @@ refer_to_support - never unclear - for anything we don't sell):
 - "I need stickers for my water bottle that will survive the dishwasher" -> family:
   refer_to_support, suppliedFormat: not_applicable, reason: "We can't guarantee our materials
   are fully dishwasher-safe, so it's best to check with our team before ordering for something
-  that'll go through repeated washes."
+  that'll go through repeated washes." (no material's data confirms this, so refer)
+- "I want eco-friendly labels for candle jars that are food safe" -> family: labels,
+  suppliedFormat: Sheets, reason: "Biodegradable Paper is a great fit - the facestock and
+  adhesive are certified safe for direct food contact (EC1935/2004, FDA 175.105) and it's fully
+  compostable." (this material's own data confirms it, so recommend it - don't refer just
+  because the word "safe" appears)
 - "Do you print fabric patches or embroidered badges?" -> family: refer_to_support,
   suppliedFormat: not_applicable, reason: "We don't currently offer fabric or embroidered
   patches - our team can let you know if that's something we can help with another way."
