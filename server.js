@@ -505,6 +505,26 @@ function enforceSuppliedFormatAvailability(rec) {
   return { ...rec, suppliedFormat: corrected };
 }
 
+// Same idea for adhesive claims - testing found the model repeatedly (3/4
+// runs) claiming Biodegradable Paper offers a removable adhesive, which is
+// false (its real adhesive is "Permanent BioTak Biodegradable Adhesive").
+// Doesn't change which material was picked (that may reflect other real
+// reasons - eco, paper finish, etc.) - just stops it lying about a specific
+// capability the material's own data contradicts.
+function enforceAdhesiveClaims(rec) {
+  if (!rec || rec.isBrowse || !rec.material || rec.material === 'none' || !rec.reason) return rec;
+  const material = MATERIALS_BY_VALUE.get(rec.material);
+  if (!material) return rec;
+
+  const claimsRemovable = /removable/i.test(rec.reason);
+  const actuallyRemovable = (material.options || []).some((o) => /removable/i.test(o));
+  if (claimsRemovable && !actuallyRemovable) {
+    console.warn(`False removable claim for ${rec.material}, correcting reason`);
+    return { ...rec, reason: `${material.label} uses a permanent adhesive only - it doesn't offer a removable option. Let us know if that's a dealbreaker and we can point you to one that does.` };
+  }
+  return rec;
+}
+
 const recommendSchema = {
   name: 'sticker_recommendation',
   strict: true,
@@ -648,7 +668,7 @@ app.post('/api/recommend', async (req, res) => {
     }
     if (!parsed) return res.status(500).send('Bad model response');
 
-    res.json(enforceSuppliedFormatAvailability(parsed));
+    res.json(enforceAdhesiveClaims(enforceSuppliedFormatAvailability(parsed)));
   } catch (err) {
     console.error('Server error:', err);
     res.status(500).send('Server error');
