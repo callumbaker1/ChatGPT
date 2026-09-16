@@ -250,6 +250,12 @@ RULES:
   e.g. if the customer just says "stickers" with no context. Otherwise make your best call.
 - Never ask a second clarifying question - after one round of clarification, commit to a
   recommendation even if you're not fully certain.
+- "rolls" vs suppliedFormat "Rolls": these are different things. suppliedFormat "Rolls" means
+  a sticker/label/sheet product simply packaged on a roll instead of loose. family "rolls" is
+  our DEDICATED roll-fed label product built for automatic/machine dispensing at real volume
+  (think barcode/warehouse/production-line labelling). If the customer specifically mentions
+  automatic application, a dispensing machine, or labelling at meaningful volume/scale, prefer
+  family "rolls" over giving another family a "Rolls" suppliedFormat.
 - Keep "reason" to one short, friendly sentence explaining the pick in plain English.
 - Do not discuss price, delivery times, or materials - that's handled later in the builder.
 - If the request is nonsensical or totally unrelated to stickers/labels, set family to
