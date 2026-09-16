@@ -260,33 +260,49 @@ MATERIAL fits, then respond with structured data.
 FAMILIES (pick exactly one):
 ${FAMILY_INFO}
 
+STEP 1 - CHECK THIS FIRST, before anything else: does the customer's request describe
+something we do not sell, or something listed as "Coming soon" in the builder? If so, this is
+"refer_to_support" - full stop, do not pick "unclear" or force it into a family that doesn't
+fit. This applies whenever the request clearly names a product/material/process outside our
+range, for example (not exhaustive - use judgement for anything equivalent): fabric patches,
+embroidered patches/badges, iron-on/heat transfer vinyl for t-shirts, keyrings, magnets,
+mugs, business cards, vehicle wraps, large format PVC banners, engraving, 3D/embossed or
+textured printing. It also applies when a normal material genuinely can't meet a
+safety-relevant requirement, e.g. "dishwasher-safe" or "food-safe" - we cannot guarantee that
+of our standard materials, so refer rather than guess. Explain briefly in "reason" why it's
+being referred, so the customer isn't left guessing.
+
+STEP 2 - only if step 1 doesn't apply: is the request itself too vague to route confidently,
+even though it IS something we sell (e.g. just "I need some stickers" with no context, or "can
+you help me with labels")? That's "unclear" - ask ONE short clarifying question about what
+they're for. Don't use "unclear" for something we simply don't sell - that's always
+"refer_to_support" instead, never "unclear".
+
+STEP 3 - otherwise, pick the real family normally.
+
 SUPPLIED FORMAT (only meaningful when family is stickers, labels, sheets or rolls):
-- Singles: Individual stickers, each die cut to its own shape ("Die Cut Singles").
-- Sheets: Multiple stickers printed together and supplied on one sheet ("On Sheets").
+- Singles: Individual stickers, each die cut to its own shape ("Die Cut Singles"). This is our
+  default/most common configuration for family "stickers" - use it whenever nothing in the
+  request suggests otherwise (e.g. it doesn't sound like a product-packaging label or a
+  multi-design sheet).
+- Sheets: Multiple stickers printed together and supplied on one sheet ("On Sheets"). This is
+  the default for family "labels" unless the request suggests otherwise.
 - Rolls: Supplied on a roll, one sticker after another ("On Rolls").
 - StickerSheets: A dedicated sticker sheet product - use this when family is "sheets".
-- not_applicable: Use this for wall, floor and window families, or whenever supply format
-  genuinely hasn't come up / doesn't matter for the recommendation.
+- not_applicable: ONLY for families that don't use a supplied format at all (wall, floor,
+  window, unclear, refer_to_support). Never use it for stickers/labels/sheets/rolls just
+  because you're unsure - pick the sensible default instead.
 
 MATERIALS - use this knowledge to make "reason" genuinely helpful, the way an experienced
-member of staff would, but do NOT invent a structured material field or claim the builder has
-pre-selected it - just name the material in your sentence when it clearly matters (durability,
-see-through, eco/disposable, decorative effect, premium look, adhesion). Don't mention a
-material when nothing about the request calls for a specific one - plenty of requests are fine
-left generic.
+member of staff would. Do NOT invent a structured material field or claim the builder has
+pre-selected it - just name the SPECIFIC material by its exact name (e.g. "Foiled stickers",
+not a vague phrase like "a gold foil effect") in your sentence whenever it clearly matters:
+durability, see-through, eco/disposable, a decorative or premium finish the customer asked
+for, or adhesion. Don't mention a material when nothing about the request calls for a specific
+one - plenty of requests are fine left generic.
 ${MATERIAL_INFO}
 
-REFER TO SUPPORT: use family "refer_to_support" whenever we don't sell what's being asked for
-(fabric patches, embroidered badges, keyrings, mugs, business cards, vehicle wraps, PVC
-banners, engraving) or it's listed as "Coming soon" in the builder (magnets, garment
-transfers) - explain briefly in "reason" why it's being referred, so the customer isn't left
-guessing. Also use it when a standard material genuinely can't meet a safety-relevant
-requirement (e.g. dishwasher-safe stickers - we can't guarantee that) rather than picking a
-material that might disappoint them.
-
 RULES:
-- Ask AT MOST one short clarifying question if you genuinely can't tell which family fits -
-  e.g. if the customer just says "stickers" with no context. Otherwise make your best call.
 - Never ask a second clarifying question - after one round of clarification, commit to a
   recommendation even if you're not fully certain.
 - "rolls" vs suppliedFormat "Rolls": these are different things. suppliedFormat "Rolls" means
@@ -303,14 +319,20 @@ RULES:
 // trickier cases (material calls, refer-to-support calls), not the obvious
 // ones, so the model sees what "good" looks like without bloating the prompt.
 const RECOMMEND_EXAMPLES = `
-WORKED EXAMPLES (structure/tone only - always answer the actual question asked):
+WORKED EXAMPLES - these are not optional flavour text, they show the exact standard your real
+answer must meet. Match this level of specificity every time (name the actual material,
+never leave suppliedFormat as not_applicable for stickers/labels/sheets/rolls, use
+refer_to_support - never unclear - for anything we don't sell):
 - "Can you make stickers with a gold foil effect for my wedding favours?" -> family: stickers,
   suppliedFormat: Singles, reason: "We'd recommend our Foiled stickers for that metallic foil
   finish, supplied as individual Die Cut Singles for your favours."
 - "I need stickers for my water bottle that will survive the dishwasher" -> family:
-  refer_to_support, reason: "We can't guarantee our materials are fully dishwasher-safe, so
-  it's best to check with our team before ordering for something that'll go through repeated
-  washes."
+  refer_to_support, suppliedFormat: not_applicable, reason: "We can't guarantee our materials
+  are fully dishwasher-safe, so it's best to check with our team before ordering for something
+  that'll go through repeated washes."
+- "Do you print fabric patches or embroidered badges?" -> family: refer_to_support,
+  suppliedFormat: not_applicable, reason: "We don't currently offer fabric or embroidered
+  patches - our team can let you know if that's something we can help with another way."
 - "Looking for stickers to put on the outside of gift boxes as a seal" -> family: labels,
   suppliedFormat: Sheets, reason: "Labels supplied on a sheet are easiest to peel and stick as
   a seal on gift boxes - we can also supply on a roll if that suits your workflow better."
@@ -416,11 +438,10 @@ app.post('/api/recommend', async (req, res) => {
 
     const body = {
       model: 'gpt-4o-mini',
-      temperature: 0.3,
+      temperature: 0.15,
       max_tokens: 300,
       messages: [
-        { role: 'system', content: recommendPrompt.trim() },
-        { role: 'system', content: RECOMMEND_EXAMPLES.trim() },
+        { role: 'system', content: recommendPrompt.trim() + '\n\n' + RECOMMEND_EXAMPLES.trim() },
         ...messages.slice(-10)
       ],
       response_format: { type: 'json_schema', json_schema: recommendSchema }
