@@ -489,11 +489,22 @@ rolls, use refer_to_support - never unclear - for anything we don't sell):
 const MATERIAL_ENUM = ['none', ...MATERIALS.map((m) => m.value)];
 const MATERIALS_BY_VALUE = new Map(MATERIALS.map((m) => [m.value, m]));
 
+const SUPPLIED_FORMAT_PHRASES = {
+  Singles: 'as individual Die Cut Singles',
+  Sheets: 'on a sheet',
+  Rolls: 'on a roll',
+  StickerSheets: 'as a Sticker Sheet'
+};
+
 // Belt-and-braces on top of the prompt instruction: the model occasionally
 // still pairs a material with a supplied format it doesn't really offer
 // (found via a real bug - Paper Foiled recommended as "Die Cut Singles",
 // which isn't a real product). Clamp deterministically to a format the
 // material's own real data confirms, rather than trust wording alone.
+// Also rewrites "reason" when correcting - leaving the old claim in place
+// (e.g. still saying "individual Die Cut Singles" after silently changing
+// suppliedFormat to Sheets) is its own bug: a visible contradiction between
+// what the text says and what the page actually does.
 function enforceSuppliedFormatAvailability(rec) {
   if (!rec || rec.isBrowse || !rec.material || rec.material === 'none') return rec;
   const material = MATERIALS_BY_VALUE.get(rec.material);
@@ -502,7 +513,12 @@ function enforceSuppliedFormatAvailability(rec) {
 
   const corrected = material.suppliedFormats[0];
   console.warn(`Corrected suppliedFormat for ${rec.material}: ${rec.suppliedFormat} -> ${corrected}`);
-  return { ...rec, suppliedFormat: corrected };
+  const phrase = SUPPLIED_FORMAT_PHRASES[corrected] || corrected;
+  return {
+    ...rec,
+    suppliedFormat: corrected,
+    reason: `${material.label} is only supplied ${phrase} - that's how this one will come.`
+  };
 }
 
 // Same idea for adhesive claims - testing found the model repeatedly (3/4
