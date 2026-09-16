@@ -325,12 +325,42 @@ options within one product, so the "material" field is what actually decides whi
 customer lands on - getting it right matters as much as "family" does, not just phrasing.
 Set "material" to the exact matching value whenever the customer names, implies, or clearly
 needs a specific one (a decorative/foil/metallic finish, eco/compostable, waterproof/outdoor,
-see-through, extra-durable, strong adhesive for a tricky surface). If the request is generic
-and a standard material is genuinely fine, set "material" to "none" (this lands them on the
-default product for that family, which already uses Waterproof Vinyl). Never guess a material
-value that isn't in the list below. Always name it by its exact label in "reason" too (e.g.
-"Foiled stickers", never a vague phrase like "a gold foil effect").
+see-through, extra-durable, strong adhesive for a tricky surface, a specific adhesive type -
+see below). If the request is generic and a standard material is genuinely fine, set
+"material" to "none" (this lands them on the default product for that family, which already
+uses Waterproof Vinyl). Never guess a material value that isn't in the list below. Always name
+it by its exact label in "reason" too (e.g. "Foiled stickers", never a vague phrase like "a
+gold foil effect").
+Each material's "options" array lists its REAL finish/adhesive choices (most are "Permanent
+Only" - a few, like Waterproof Vinyl and Laminated Stickers, also offer Removable and/or
+Extra-Permanent). If the customer asks for a removable, extra-strong, or specific-finish
+sticker, check "options" and recommend a material that actually offers it - don't assume every
+material does, and don't invent an adhesive type that isn't listed.
+Each material's "whiteInkAvailable" says whether we can print an opaque white ink layer under
+the design on that material (needed on materials that aren't already solid, e.g. clear or
+metallic/holographic materials, so colours don't pick up whatever's underneath - paper
+materials are already opaque enough and never need it). Mention it in "reason" when relevant
+(e.g. printing on a clear or metallic material) - it's an optional add-on, not a material
+choice in itself, so don't let it change "material".
+Each material's "categories" tags match the real filter tabs in the builder ("popular",
+"metallics", "eco") - see BROWSING below for when this matters.
 ${MATERIAL_INFO}
+
+BROWSING vs RECOMMENDING - these need different kinds of answer:
+- RECOMMENDING (the default): the customer describes a NEED ("stickers for my wedding
+  favours", "waterproof labels for my products") - commit to the single best family/material/
+  suppliedFormat, as everywhere else in this prompt. Set isBrowse to false and leave
+  browseOptions as an empty array.
+- BROWSING: the customer asks an open, catalogue-style question about what's available in a
+  group, rather than describing a specific need - e.g. "what metallic stickers do you have?",
+  "show me your eco/paper options", "what are your most popular materials?". Forcing a single
+  pick here would hide real choice, so instead set isBrowse to true, and fill browseOptions
+  with EVERY material whose "categories" (or, for a grouping with no exact category tag like
+  "waterproof" or "foiled", whose description) genuinely matches what was asked - typically
+  2-6 items, each with a one-sentence "note" on what makes it distinct from the others in the
+  group. Still set "family" to your best-guess context (default "stickers" if unclear) and
+  leave "material" as "none" - browseOptions carries the real answer. Keep "reason" to one
+  short intro sentence (e.g. "Here's what we offer in metallics:").
 
 RULES:
 - Never ask a second clarifying question - after one round of clarification, commit to a
@@ -396,6 +426,32 @@ rolls, use refer_to_support - never unclear - for anything we don't sell):
   this - multiple different designs together on one printed sheet." (this genuinely IS the
   Sticker Sheets product, because it's several different designs as one item, not just the
   everyday delivery format)
+- "I need stickers with a removable adhesive so I can take them off later" -> family: stickers,
+  suppliedFormat: Singles, material: waterproof-vinyl, isBrowse: false, browseOptions: [],
+  reason: "Waterproof Vinyl offers a removable adhesive option alongside permanent, so you can
+  take these off cleanly later." (checked "options" for waterproof-vinyl, which lists
+  Removable - don't just default to the generic material without checking this)
+- "I want holographic stickers, will the colours look solid or see-through?" -> family:
+  stickers, suppliedFormat: Singles, material: holographic-vinyl-stickers, isBrowse: false,
+  browseOptions: [], reason: "Holographic Mosaic Vinyl can take a white ink layer under your
+  design, so your colours come out solid rather than picking up the holographic effect
+  underneath - let us know when ordering if you'd like that." (whiteInkAvailable is true for
+  this material, and it's directly relevant to what was asked, so mention it)
+- "What metallic stickers do you have?" -> isBrowse: true, family: stickers, suppliedFormat:
+  not_applicable, material: none, browseOptions: [
+    { material: "metallic-vinyl-stickers", note: "Metallic Silver or Gold - a reflective satin
+      metallic finish." },
+    { material: "mirror-vinyl-stickers", note: "Mirror Silver, Gold or Rose Gold - a polished,
+      high-shine mirror finish." },
+    { material: "brushed-vinyl-stickers", note: "Brushed Silver, Gold or Rose Gold - a brushed
+      metal texture, popular for weddings and luxury branding." },
+    { material: "rainbow-vinyl-stickers", note: "Holographic Rainbow - a shifting rainbow
+      metallic effect." },
+    { material: "holographic-vinyl-stickers", note: "Holographic Mosaic - a mosaic-patterned
+      holographic shimmer." },
+    { material: "glitter-vinyl-stickers", note: "Glitter Vinyl - a sparkly glitter finish." }
+  ], reason: "Here's what we offer in metallic finishes:" (all 6 are tagged "metallics" in the
+  real data - list all of them, this is a browsing question, not one to narrow down)
 `;
 
 const MATERIAL_ENUM = ['none', ...MATERIALS.map((m) => m.value)];
@@ -411,9 +467,22 @@ const recommendSchema = {
       family: { type: 'string', enum: ['stickers', 'labels', 'sheets', 'rolls', 'wall', 'floor', 'window', 'unclear', 'refer_to_support'] },
       suppliedFormat: { type: 'string', enum: ['Singles', 'Sheets', 'Rolls', 'StickerSheets', 'not_applicable'] },
       material: { type: 'string', enum: MATERIAL_ENUM },
+      isBrowse: { type: 'boolean' },
+      browseOptions: {
+        type: 'array',
+        items: {
+          type: 'object',
+          properties: {
+            material: { type: 'string', enum: MATERIAL_ENUM },
+            note: { type: 'string' }
+          },
+          required: ['material', 'note'],
+          additionalProperties: false
+        }
+      },
       reason: { type: 'string' }
     },
-    required: ['needsClarification', 'clarifyingQuestion', 'family', 'suppliedFormat', 'material', 'reason'],
+    required: ['needsClarification', 'clarifyingQuestion', 'family', 'suppliedFormat', 'material', 'isBrowse', 'browseOptions', 'reason'],
     additionalProperties: false
   }
 };

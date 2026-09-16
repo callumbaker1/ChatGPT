@@ -2,6 +2,9 @@
   {
     "value": "waterproof-vinyl",
     "label": "Waterproof Vinyl",
+    "categories": [
+      "popular"
+    ],
     "subtitle": "Supplied individually with gloss or matt finish",
     "description": "Die-cut stickers are becoming increasingly popular. The stickers are individually cut, making it easy for people to hand out at events, distribute amongst customers and even include in your packages and parcels! Our printed die-cut individual stickers are fully waterproof, meaning they can be used for both indoor and outdoor use. Simply hand out and peel away the backing to reveal the adhesive. Die cut stickers are great for increasing brand awareness - people are starting to use them as an alternative to business cards due to their ease of distribution and a novelty for people to keep and show off. Our die-cut stickers are available in a matt or a gloss finish, and can be printed and cut to any custom shape or size. Use our interactive product builder above to create your perfect die-cut sticker! Start by selecting a shape - choose between Round, Square, Rectangle, Oval or Custom Shape for a bespoke cut path. Work your way through the builder choosing your finishing options, sizes, quantity etc and see a live price! Once you are happy with your stickers, you can upload your artwork and add to the cart.",
     "highlights": [
@@ -11,11 +14,19 @@
     ],
     "specs": [
       "Operating Temperature: -20°C to +80°C"
-    ]
+    ],
+    "options": [
+      "Finishes Available: Matt & Gloss",
+      "Adhesives Available: Permanent, Removable & High Tack"
+    ],
+    "whiteInkAvailable": false
   },
   {
     "value": "clear-waterproof-vinyl",
     "label": "Clear Waterproof Vinyl",
+    "categories": [
+      "popular"
+    ],
     "subtitle": "Available in clear gloss or clear frosted matt",
     "description": "Discover the versatility of our clear waterproof vinyl labels and stickers, ideal for a wide range of purposes and applications where a transparent background is essential. These custom-printed labels are crafted on clear vinyl, ensuring remarkable durability for both indoor and outdoor use, thanks to their water-resistant finish and adhesive. Our clear waterproof vinyl labels and stickers offer complete flexibility. You can customize them to your preferred shape, size, and even include perforated cuts for enhanced tamper security, giving you total control over the visual impact of your printed labels. These transparent vinyl stickers and labels deliver an 'invisible' aesthetic, creating stunning visual effects when printed. You can choose between a high gloss finish or a matte finish for a frosted look. The waterproof adhesive, combined with UV-resistant inks, ensures that these labels can be used outdoors without the worry of smudging when wet. If you prefer an opaque backing, the same material used for our clear vinyl stickers and labels is also available in white waterproof vinyl. Furthermore, using the latest UV technology, we now offer the option to print opaque white inks onto our transparent vinyl materials. You can select either white ink only for your stickers or incorporate a white base layer to make your colors truly stand out. For clear waterproof stickers that make a lasting impression, explore our range today. Simply choose your shape, enter your dimensions, and select your finishing options to instantly receive a live price quote!",
     "highlights": [
@@ -25,11 +36,17 @@
     ],
     "specs": [
       "Operating Temperature: -20°C to +80°C"
-    ]
+    ],
+    "options": [
+      "Finishes Available: Matt & Gloss",
+      "Adhesives Available: Permanent Only"
+    ],
+    "whiteInkAvailable": true
   },
   {
     "value": "block-out-vinyl",
     "label": "Block Out Vinyl",
+    "categories": [],
     "subtitle": "Correction labels, available in a matt or gloss finish",
     "description": "Block out stickers, also known as cover-up labels, are the perfect solution for those moments when you need a do-over. Whether it's a typo on a brochure, a misprint on packaging, or you're updating contact information on existing materials, our block out vinyl stickers come to the rescue, providing a seamless fix that looks intentional and professional. Crafted with an opaque light-blocking layer, these stickers prevent underlying errors from showing through. You won't have to worry about unsightly shadows or ghosting from past mistakes - your artwork will be the only thing shining through. Each sticker is made with top-tier, self-adhesive block out material that adheres securely to a variety of surfaces. We take great care in printing your designs with sharp, vivid detail to ensure a polished, high-quality appearance that aligns with your brand's standards. Customization is key, which is why you can tailor your block out stickers to any size or shape to cover errors of all kinds. Our precision cutting techniques mean that no mistake is too big or too small to correct. Our block out stickers are not only for corrective measures. They are also ideal for updating information or repurposing materials, making them a cost-effective and environmentally friendly choice. Use them to refresh your branding or adjust messaging without the need to reprint entire batches of materials. We understand the urgency that often comes with the need for block out stickers, and our production process is designed for efficiency. Once your design is finalized, we swiftly print and ship your stickers, ensuring you can make your amendments without significant delay. To ensure the highest satisfaction, we provide proofs for your approval before printing, guaranteeing that your stickers meet your exact specifications. With our block out vinyl stickers, you have the power to make quick fixes with confidence, preserving the integrity and professionalism of your printed materials. Our block out stickers are supplied on sheets for convenient peeling and sticking.",
     "highlights": [
@@ -39,11 +56,19 @@
     ],
     "specs": [
       "Operating Temperature: -20°C to +80°C"
-    ]
+    ],
+    "options": [
+      "Finishes Available: Matt & Gloss",
+      "Adhesives Available: Permanent Only"
+    ],
+    "whiteInkAvailable": false
   },
   {
     "value": "laminated-stickers",
     "label": "Laminated Stickers",
+    "categories": [
+      "popular"
+    ],
     "subtitle": "White heavy duty durable printed stickers",
     "description": "Our white laminated waterproof vinyl stickers & labels offer all the advantages of standard vinyl labels, plus an extra layer of protection! These labels are the ideal choice for outdoor applications and demanding industrial environments, thanks to their exceptionally durable finish. Custom printed and built to endure abrasion and weathering, our laminated stickers and labels are designed to last. Once printed, each label is encapsulated by an additional layer of clear waterproof vinyl, creating a robust and weather-resistant label that can withstand the harshest conditions. For added versatility, our printed laminated stickers and labels can be cut into any shape or size, giving you complete creative control over their appearance. Choose your preferred sticker shape below, customize your options, and input the dimensions of your waterproof vinyl label to instantly receive a live price quote! Our white printed laminated vinyl labels and stickers are available in both Matt and Gloss finishes, which can be conveniently selected on the sticker builder above. Additionally, you have the option to choose between a Permanent adhesive or an Extra Permanent / High Tack Adhesive, providing you with the ultimate durable sticker or label solution. Our printed laminated stickers are supplied planned up on sheets for convenient peeling and sticking. For those seeking transparency, we also offer Clear Laminated Vinyl labels, ideal for applications where transparency is required. Our waterproof stickers are printed using UV resistant inks which prevent your sticker from fading when exposed to sunlight. Explore our range of laminated waterproof vinyl labels and stickers, designed to meet your toughest labeling needs.",
     "highlights": [
@@ -53,11 +78,17 @@
     ],
     "specs": [
       "Operating Temperature: -20°C to +80°C"
-    ]
+    ],
+    "options": [
+      "Finishes Available: Matt & Gloss",
+      "Adhesives Available: Permanent, Removable & Extra-Permanent"
+    ],
+    "whiteInkAvailable": false
   },
   {
     "value": "clear-laminated-stickers",
     "label": "Clear Laminated Stickers",
+    "categories": [],
     "subtitle": "Transparent heavy duty durable printed stickers",
     "description": "Our clear laminated waterproof vinyl stickers & labels offer all the advantages of standard transparent vinyl labels, plus an extra layer of protection! These labels are the ideal choice for outdoor applications and demanding industrial environments, thanks to their exceptionally durable finish. Custom printed and built to endure abrasion and weathering, our clear laminated stickers and labels are designed to last. Once printed, each label is encapsulated by an additional layer of clear waterproof vinyl, creating a robust and weather-resistant label that can withstand the harshest conditions. For added versatility, our printed laminated stickers and labels can be cut into any shape or size, giving you complete creative control over their appearance. Choose your preferred sticker shape below, customize your options, and input the dimensions of your waterproof vinyl label to instantly receive a live price quote! Our white printed laminated vinyl labels and stickers are available in both Matt and Gloss finishes, which can be conveniently selected on the sticker builder above. Our clear laminated stickers only come in a multi purpose permanent adhesive. Our printed clear laminated stickers are supplied planned up on sheets for convenient peeling and sticking. For those seeking a fully opaque sticker, we also offer White Laminated Vinyl labels, ideal for applications where you do not need any transparent areas. Our waterproof stickers are printed using UV resistant inks which prevent your sticker from fading when exposed to sunlight. Furthermore, we now offer the option to print opaque white inks onto our transparent vinyl materials. You can select either white ink only for your stickers or incorporate a white base layer to make your colors truly stand out.",
     "highlights": [
@@ -67,11 +98,17 @@
     ],
     "specs": [
       "Operating Temperature: -20°C to +80°C"
-    ]
+    ],
+    "options": [
+      "Finishes Available: Matt & Gloss",
+      "Adhesives Available: Permanent Only"
+    ],
+    "whiteInkAvailable": true
   },
   {
     "value": "high-tack-stickers",
     "label": "High Tack Stickers",
+    "categories": [],
     "subtitle": "Super sticky labels, in a matt or gloss finish",
     "description": "Our high-tack custom vinyl stickers are the solution when you require an exceptionally strong adhesive that can withstand the harshest conditions. These personalized vinyl stickers exhibit remarkable adhesion to a wide range of surfaces, including wood and low-energy surfaces like ABS. Thanks to their extremely high-tack, extra-permanent adhesive, these stickers maintain their grip on surfaces for an extended duration compared to standard permanent adhesive options. For added versatility, all our high-tack vinyl stickers and labels can be customized in terms of shape and size, and can even feature perforated cuts for enhanced tamper security. This level of customization empowers you to design your printed labels exactly the way you envision. Our high-tack personalized vinyl stickers are manufactured using 100-micron brilliant white waterproof vinyl, ensuring their durability and longevity. You can choose between a Matt or Gloss finish, both of which are complemented by an Extra Permanent adhesive. These options can be easily selected using the product builder above. The high-tack waterproof adhesive, coupled with waterproof and UV-resistant inks, allows these labels to thrive outdoors without the risk of smudging when exposed to moisture or sunlight. For those seeking the ultimate durable label, our White Laminated Labels are also available with an extra-permanent adhesive option. Rest assured, our waterproof stickers are printed using UV-resistant inks to prevent fading when exposed to sunlight. Our high tack stickers are supplied on sheets for convenient peeling and sticking. If you require stickers cut to individuals, please see our die cut stickers. Select your preferred sticker shape (round, square, rectangle, oval, or custom shape), input your dimensions, choose your finishing options, and specify your label quantity to receive an instant quote for custom outdoor or waterproof labels.",
     "highlights": [
@@ -82,11 +119,19 @@
     "specs": [
       "Regulations: REACH and RoHS compliant.",
       "Service Temperature: -20°C to +80°C"
-    ]
+    ],
+    "options": [
+      "Finishes Available: Matt & Gloss",
+      "Adhesives Available: Extra-Permanent / High Tack"
+    ],
+    "whiteInkAvailable": false
   },
   {
     "value": "metallic-vinyl-stickers",
     "label": "Metallic Silver",
+    "categories": [
+      "metallics"
+    ],
     "subtitle": "Available in metallic gold or silver with a gloss or matt finish",
     "description": "Our metallic vinyl labels & stickers are great for making your message stand out above the competition. These metallic labels and stickers are commonly used for; luxury goods, wedding stationery, hotels, restaurants, the list goes on! Metallic stickers are growing ever more popular with the desire to have amazing high end labels, making products really stand out, at low costs. The metallic pigments within the vinyl sticker material provides a glistening look in the light, this will also show through on some lighter colour prints leaving a great metallic finish to your label! All of our metallic printed stickers and labels can be cut to any shape or size, so you have complete control in how your printed product will look. Our metallic vinyl stickers are available in a Silver and Gold finish, both available in matt or gloss with a Permanent adhesive. PLEASE NOTE. Metallic stickers are not considered shiny, they are coloured vinyls with subtle metallic flecks. If you require shiny / mirror metallics, please visit our mirror vinyl stickers. The waterproof adhesive, along with the waterproof & UV resistant inks means these printed labels can be used outdoors without the worry of smudging when wet. Furthermore, using the latest UV technology, we now offer the option to print opaque white inks onto our range of metallic vinyl materials. You can incorporate a white base layer to make your colors truly stand out, or simply have just white or black ink to create a contrast between the metallic vinyl colours. Alternatively we can print colour only onto the metallic vinyl stickers to allow the effect to show through producing metallic colour effects! The inks we use on this material have a matt effect, so any printed areas would have a luxurious matt look and feel. Our metallic effect stickers can be supplied on sheets for convenient peeling and sticking or supplied individually for handing out. You can choose your option when building your stickers above. Configure your metallic vinyl stickers now using the builder above and see a live price! Available in 2 metallic colours: Silver Gold",
     "highlights": [
@@ -97,11 +142,19 @@
     "specs": [
       "Regulations: REACH and RoHS compliant.",
       "Operating Temperature: -20°C to +100°C"
-    ]
+    ],
+    "options": [
+      "Finishes Available: Silver & Gold / Matt & Gloss",
+      "Adhesives Available: Permanent Only"
+    ],
+    "whiteInkAvailable": true
   },
   {
     "value": "metallic-vinyl-stickers-gold",
     "label": "Metallic Gold",
+    "categories": [
+      "metallics"
+    ],
     "subtitle": "Available in metallic gold or silver with a gloss or matt finish",
     "description": "Our metallic vinyl labels & stickers are great for making your message stand out above the competition. These metallic labels and stickers are commonly used for; luxury goods, wedding stationery, hotels, restaurants, the list goes on! Metallic stickers are growing ever more popular with the desire to have amazing high end labels, making products really stand out, at low costs. The metallic pigments within the vinyl sticker material provides a glistening look in the light, this will also show through on some lighter colour prints leaving a great metallic finish to your label! All of our metallic printed stickers and labels can be cut to any shape or size, so you have complete control in how your printed product will look. Our metallic vinyl stickers are available in a Silver and Gold finish, both available in matt or gloss with a Permanent adhesive. PLEASE NOTE. Metallic stickers are not considered shiny, they are coloured vinyls with subtle metallic flecks. If you require shiny / mirror metallics, please visit our mirror vinyl stickers. The waterproof adhesive, along with the waterproof & UV resistant inks means these printed labels can be used outdoors without the worry of smudging when wet. Furthermore, using the latest UV technology, we now offer the option to print opaque white inks onto our range of metallic vinyl materials. You can incorporate a white base layer to make your colors truly stand out, or simply have just white or black ink to create a contrast between the metallic vinyl colours. Alternatively we can print colour only onto the metallic vinyl stickers to allow the effect to show through producing metallic colour effects! The inks we use on this material have a matt effect, so any printed areas would have a luxurious matt look and feel. Our metallic effect stickers can be supplied on sheets for convenient peeling and sticking or supplied individually for handing out. You can choose your option when building your stickers above. Configure your metallic vinyl stickers now using the builder above and see a live price! Available in 2 metallic colours: Silver Gold",
     "highlights": [
@@ -112,11 +165,19 @@
     "specs": [
       "Regulations: REACH and RoHS compliant.",
       "Operating Temperature: -20°C to +100°C"
-    ]
+    ],
+    "options": [
+      "Finishes Available: Silver & Gold / Matt & Gloss",
+      "Adhesives Available: Permanent Only"
+    ],
+    "whiteInkAvailable": true
   },
   {
     "value": "mirror-vinyl-stickers",
     "label": "Mirror Silver",
+    "categories": [
+      "metallics"
+    ],
     "subtitle": "Available in mirror gold, silver and rose gold",
     "description": "Our mirror vinyl labels and stickers are the shiniest material we stock, resembling a mirror. Often called polished stickers or shiny metallic stickers, they allow you to achieve incredible results. Metallic mirrored stickers are increasingly popular for creating high-end labels that make products stand out, all at a low cost. The best part about this mirror sticker material is that it can be cut to any shape or size and include perforated cuts, giving you full control over how your waterproof printed labels appear. Our shiny mirror vinyl stickers are available in a Silver, Rose Gold and Gold finish, with a Permanent adhesive. The waterproof adhesive, along with the waterproof & UV resistant inks means these printed labels can be used outdoors without the worry of smudging when wet. Using the latest UV technology, we can now print opaque white inks onto our mirror vinyl materials. Add a white base layer to make colours stand out, use white or black ink for contrast, or print colour only to let the mirror effect shine through, producing metallic effects. The inks on this material have a matt effect giving printed areas a luxurious matt look and feel. Our mirror effect stickers can be supplied on sheets for convenient peeling and sticking or supplied individually for handing out. You can choose your option when building your stickers above. Configure your mirror vinyl stickers now using the builder above and see a live price! Available in 3 mirror colours: Silver Rose Gold Gold",
     "highlights": [
@@ -126,11 +187,19 @@
     ],
     "specs": [
       "Operating Temperature: -20°C to +80°C"
-    ]
+    ],
+    "options": [
+      "Finishes Available: Silver, Rose Gold & Gold Mirror",
+      "Adhesives Available: Permanent Only"
+    ],
+    "whiteInkAvailable": true
   },
   {
     "value": "mirror-vinyl-stickers-gold",
     "label": "Mirror Gold",
+    "categories": [
+      "metallics"
+    ],
     "subtitle": "Available in mirror gold, silver and rose gold",
     "description": "Our mirror vinyl labels and stickers are the shiniest material we stock, resembling a mirror. Often called polished stickers or shiny metallic stickers, they allow you to achieve incredible results. Metallic mirrored stickers are increasingly popular for creating high-end labels that make products stand out, all at a low cost. The best part about this mirror sticker material is that it can be cut to any shape or size and include perforated cuts, giving you full control over how your waterproof printed labels appear. Our shiny mirror vinyl stickers are available in a Silver, Rose Gold and Gold finish, with a Permanent adhesive. The waterproof adhesive, along with the waterproof & UV resistant inks means these printed labels can be used outdoors without the worry of smudging when wet. Using the latest UV technology, we can now print opaque white inks onto our mirror vinyl materials. Add a white base layer to make colours stand out, use white or black ink for contrast, or print colour only to let the mirror effect shine through, producing metallic effects. The inks on this material have a matt effect giving printed areas a luxurious matt look and feel. Our mirror effect stickers can be supplied on sheets for convenient peeling and sticking or supplied individually for handing out. You can choose your option when building your stickers above. Configure your mirror vinyl stickers now using the builder above and see a live price! Available in 3 mirror colours: Silver Rose Gold Gold",
     "highlights": [
@@ -140,11 +209,19 @@
     ],
     "specs": [
       "Operating Temperature: -20°C to +80°C"
-    ]
+    ],
+    "options": [
+      "Finishes Available: Silver, Rose Gold & Gold Mirror",
+      "Adhesives Available: Permanent Only"
+    ],
+    "whiteInkAvailable": true
   },
   {
     "value": "mirror-vinyl-stickers-rose-gold",
     "label": "Mirror Rose Gold",
+    "categories": [
+      "metallics"
+    ],
     "subtitle": "Available in mirror gold, silver and rose gold",
     "description": "Our mirror vinyl labels and stickers are the shiniest material we stock, resembling a mirror. Often called polished stickers or shiny metallic stickers, they allow you to achieve incredible results. Metallic mirrored stickers are increasingly popular for creating high-end labels that make products stand out, all at a low cost. The best part about this mirror sticker material is that it can be cut to any shape or size and include perforated cuts, giving you full control over how your waterproof printed labels appear. Our shiny mirror vinyl stickers are available in a Silver, Rose Gold and Gold finish, with a Permanent adhesive. The waterproof adhesive, along with the waterproof & UV resistant inks means these printed labels can be used outdoors without the worry of smudging when wet. Using the latest UV technology, we can now print opaque white inks onto our mirror vinyl materials. Add a white base layer to make colours stand out, use white or black ink for contrast, or print colour only to let the mirror effect shine through, producing metallic effects. The inks on this material have a matt effect giving printed areas a luxurious matt look and feel. Our mirror effect stickers can be supplied on sheets for convenient peeling and sticking or supplied individually for handing out. You can choose your option when building your stickers above. Configure your mirror vinyl stickers now using the builder above and see a live price! Available in 3 mirror colours: Silver Rose Gold Gold",
     "highlights": [
@@ -154,11 +231,19 @@
     ],
     "specs": [
       "Operating Temperature: -20°C to +80°C"
-    ]
+    ],
+    "options": [
+      "Finishes Available: Silver, Rose Gold & Gold Mirror",
+      "Adhesives Available: Permanent Only"
+    ],
+    "whiteInkAvailable": true
   },
   {
     "value": "brushed-vinyl-stickers",
     "label": "Brushed Silver",
+    "categories": [
+      "metallics"
+    ],
     "subtitle": "Available in brushed gold, silver and rose gold",
     "description": "Our brushed aluminium silver, gold and rose gold vinyl stickers will add a real touch of class! Most commonly used for use in hotels, restaurants, for wedding stationery, luxury goods and products; these sticky labels will not fail to impress! The brushed effect finish will make your stickers look amazing! Brushed effect stickers are growing ever more popular with the desire to have amazing high end labels, making products really stand out, at low costs. The best part about this brushed sticker material is that it can be cut to any shape or size and can also include perforated cuts, so you have complete control in how your waterproof printed labels will look. Our brushed vinyl stickers are available in a Silver, Rose Gold and Gold finish, with a Permanent adhesive. The waterproof adhesive, along with the waterproof & UV resistant inks means these printed labels can be used outdoors without the worry of smudging when wet. Furthermore, using the latest UV technology, we now offer the option to print opaque white inks onto our range of brushed vinyl materials. You can incorporate a white base layer to make your colors truly stand out, or simply have just white or black ink to create a contrast between the brushed vinyl colours. Alternatively we can print colour only onto the brushed vinyl to allow the mirror effect to show through producing metallic colour effects! The inks we use on this material have a matt effect, so any printed areas would have a luxurious matt look and feel. Our brushed aluminium effect stickers can be supplied on sheets for convenient peeling and sticking or supplied individually for handing out. You can choose your option when building your stickers above. These brushed aluminium vinyl stickers will leave a professional look and feel both indoors and out! The very sticky waterproof adhesive, along with the waterproof & UV resistant inks means these labels can be used outdoors without the worry of smudging when wet. Configure your brushed vinyl stickers now using the builder above and see a live price! Available in 3 metallic colours: Silver Rose Gold Gold",
     "highlights": [
@@ -168,11 +253,19 @@
     ],
     "specs": [
       "Operating Temperature: -22°C to +74°C"
-    ]
+    ],
+    "options": [
+      "Finishes Available: Silver, Rose Gold & Gold Brushed",
+      "Adhesives Available: Permanent Only"
+    ],
+    "whiteInkAvailable": true
   },
   {
     "value": "brushed-vinyl-stickers-gold",
     "label": "Brushed Gold",
+    "categories": [
+      "metallics"
+    ],
     "subtitle": "Available in brushed gold, silver and rose gold",
     "description": "Our brushed aluminium silver, gold and rose gold vinyl stickers will add a real touch of class! Most commonly used for use in hotels, restaurants, for wedding stationery, luxury goods and products; these sticky labels will not fail to impress! The brushed effect finish will make your stickers look amazing! Brushed effect stickers are growing ever more popular with the desire to have amazing high end labels, making products really stand out, at low costs. The best part about this brushed sticker material is that it can be cut to any shape or size and can also include perforated cuts, so you have complete control in how your waterproof printed labels will look. Our brushed vinyl stickers are available in a Silver, Rose Gold and Gold finish, with a Permanent adhesive. The waterproof adhesive, along with the waterproof & UV resistant inks means these printed labels can be used outdoors without the worry of smudging when wet. Furthermore, using the latest UV technology, we now offer the option to print opaque white inks onto our range of brushed vinyl materials. You can incorporate a white base layer to make your colors truly stand out, or simply have just white or black ink to create a contrast between the brushed vinyl colours. Alternatively we can print colour only onto the brushed vinyl to allow the mirror effect to show through producing metallic colour effects! The inks we use on this material have a matt effect, so any printed areas would have a luxurious matt look and feel. Our brushed aluminium effect stickers can be supplied on sheets for convenient peeling and sticking or supplied individually for handing out. You can choose your option when building your stickers above. These brushed aluminium vinyl stickers will leave a professional look and feel both indoors and out! The very sticky waterproof adhesive, along with the waterproof & UV resistant inks means these labels can be used outdoors without the worry of smudging when wet. Configure your brushed vinyl stickers now using the builder above and see a live price! Available in 3 metallic colours: Silver Rose Gold Gold",
     "highlights": [
@@ -182,11 +275,19 @@
     ],
     "specs": [
       "Operating Temperature: -22°C to +74°C"
-    ]
+    ],
+    "options": [
+      "Finishes Available: Silver, Rose Gold & Gold Brushed",
+      "Adhesives Available: Permanent Only"
+    ],
+    "whiteInkAvailable": true
   },
   {
     "value": "brushed-vinyl-stickers-rose-gold",
     "label": "Brushed Rose Gold",
+    "categories": [
+      "metallics"
+    ],
     "subtitle": "Available in brushed gold, silver and rose gold",
     "description": "Our brushed aluminium silver, gold and rose gold vinyl stickers will add a real touch of class! Most commonly used for use in hotels, restaurants, for wedding stationery, luxury goods and products; these sticky labels will not fail to impress! The brushed effect finish will make your stickers look amazing! Brushed effect stickers are growing ever more popular with the desire to have amazing high end labels, making products really stand out, at low costs. The best part about this brushed sticker material is that it can be cut to any shape or size and can also include perforated cuts, so you have complete control in how your waterproof printed labels will look. Our brushed vinyl stickers are available in a Silver, Rose Gold and Gold finish, with a Permanent adhesive. The waterproof adhesive, along with the waterproof & UV resistant inks means these printed labels can be used outdoors without the worry of smudging when wet. Furthermore, using the latest UV technology, we now offer the option to print opaque white inks onto our range of brushed vinyl materials. You can incorporate a white base layer to make your colors truly stand out, or simply have just white or black ink to create a contrast between the brushed vinyl colours. Alternatively we can print colour only onto the brushed vinyl to allow the mirror effect to show through producing metallic colour effects! The inks we use on this material have a matt effect, so any printed areas would have a luxurious matt look and feel. Our brushed aluminium effect stickers can be supplied on sheets for convenient peeling and sticking or supplied individually for handing out. You can choose your option when building your stickers above. These brushed aluminium vinyl stickers will leave a professional look and feel both indoors and out! The very sticky waterproof adhesive, along with the waterproof & UV resistant inks means these labels can be used outdoors without the worry of smudging when wet. Configure your brushed vinyl stickers now using the builder above and see a live price! Available in 3 metallic colours: Silver Rose Gold Gold",
     "highlights": [
@@ -196,11 +297,19 @@
     ],
     "specs": [
       "Operating Temperature: -22°C to +74°C"
-    ]
+    ],
+    "options": [
+      "Finishes Available: Silver, Rose Gold & Gold Brushed",
+      "Adhesives Available: Permanent Only"
+    ],
+    "whiteInkAvailable": true
   },
   {
     "value": "rainbow-vinyl-stickers",
     "label": "Holographic Rainbow Vinyl",
+    "categories": [
+      "metallics"
+    ],
     "subtitle": "Holographic rainbow stickers, available on sheets or die cut",
     "description": "Our rainbow holographic stickers are becoming extremely popular! Shimmering with a spectrum of rainbow colours amidst its brilliant holographic effect shine. These custom printed rainbow holographic stickers are quickly becoming a favorite for their eye-catching sparkle. Each sticker reflects light into a burst of colors with a magical holographic twist. Our holographic rainbow stickers go beyond the conventional, while they radiate with iridescent colors, they also offer resilience and versatility. These stickers are more than just pretty; they're crafted for those who love to make a statement without splurging. They're not your average stickers; they're a step up from our metallic collection, designed to dazzle without draining your wallet. The rainbow effect vinyl shimmers different colours in different lights. You can achieve some really cool effects by mixing this material with different colours and tones. Crafted from durable vinyl, these stickers are not only waterproof but are also UV resistant. This ensures they maintain their vibrant sheen, even when exposed outdoors. The magic is in the details, with each sticker tailored to your vision. From fancy cuts to custom shapes, your design wishes are our command. The versatility doesn't stop there. Along with our standard rainbow holographic finish, we offer the option to print with opaque white inks. This can be layered to provide a solid base for your design, maximizing color vibrancy and contrast against the holographic background. Alternatively, opt for just white or black ink to achieve a striking contrast, or let the holographic material shine through for a mesmerizing metallic effect. The inks we use on this material have a matt effect, so any printed areas would have a luxurious matt look and feel. Perfect for various applications, these stickers can be provided on sheets for ease of application or individually for promotional purposes. Customize your rainbow holographic stickers using our online builder and get a real-time quote today!",
     "highlights": [
@@ -208,11 +317,20 @@
       "White Ink and Colour",
       "Maximum Impact"
     ],
-    "specs": []
+    "specs": [],
+    "options": [
+      "Finishes Available: Rainbow Effect Gloss",
+      "Adhesives Available: Permanent Only"
+    ],
+    "whiteInkAvailable": true
   },
   {
     "value": "glitter-vinyl-stickers",
     "label": "Glitter Vinyl",
+    "categories": [
+      "metallics",
+      "popular"
+    ],
     "subtitle": "Glittery vinyl stickers, available on sheets or die cut",
     "description": "Our glitter vinyl stickers are part of our special effects range! Shimmering with a spectrum of rainbow glitter colours to really stand out above the crowd. These custom printed glittery stickers are quickly becoming a favorite for their eye-catching sparkle. Each glitter sticker reflects light into a burst of colors, similar to a glitter ball. These stickers are more than just pretty; they're crafted for those who love to make a statement without splurging. They're not your average stickers; they're a step up from our metallic collection, designed to dazzle without draining your wallet. The glitter effect vinyl shimmers different colours in different lights. You can achieve some really cool effects by mixing this material with different colours and tones. Crafted from durable vinyl, these stickers are not only waterproof but are also UV resistant. This ensures they maintain their vibrant sheen, even when exposed outdoors. The magic is in the details, with each sticker tailored to your vision. From fancy cuts to custom shapes, your design wishes are our command. The versatility doesn't stop there. Along with our standard glittery finish, we offer the option to print with opaque white inks. This can be layered to provide a solid base for your design, maximizing color vibrancy and contrast against the glitter vinyl background. Alternatively, opt for just white or black ink to achieve a striking contrast, or let the glitter shine through for a mesmerizing effect. PLEASE NOTE. This material is not recommended for designs with simple text or fine logos. The glitter effect can be overpowering and you may not be able to see the print very well. We would recommend our rainbow vinyl for a more subtle colourful effect. The inks we use on this material have a matt effect, so any printed areas would have a luxurious matt look and feel. Perfect for various applications, these stickers can be provided on sheets for ease of application or individually for promotional purposes. Customize your glitter stickers using our online builder and get a real-time quote today!",
     "highlights": [
@@ -220,11 +338,19 @@
       "White Ink and Colour",
       "Maximum Impact"
     ],
-    "specs": []
+    "specs": [],
+    "options": [
+      "Finishes Available: Glitter Effect Gloss",
+      "Adhesives Available: Permanent Only"
+    ],
+    "whiteInkAvailable": true
   },
   {
     "value": "holographic-vinyl-stickers",
     "label": "Holographic Mosaic Vinyl",
+    "categories": [
+      "metallics"
+    ],
     "subtitle": "Holographic mosaic stickers, available on sheets or die cut",
     "description": "Elevate your branding with our mosaic holographic Stickers, shimmering with a spectrum of rainbow swirls amidst its brilliant shine. Our holographic stickers go beyond the conventional, while they radiate with iridescent colors, they also offer resilience and versatility. Being a step above our popular metallic stickers, the mosaic holographic variant is for those seeking a high-end aesthetic without the high-end costs. Crafted from durable vinyl, these stickers are not only waterproof but are also UV resistant. This ensures they maintain their vibrant sheen, even when exposed outdoors. One of the standout features of our holographic stickers is the ability to include custom cuts, be it perforations or unique shapes, giving you unparalleled control over the final design. The versatility doesn't stop there. Along with our standard holographic finish, we offer the option to print with opaque white inks. This can be layered to provide a solid base for your design, maximizing color vibrancy and contrast against the holographic background. Alternatively, opt for just white or black ink to achieve a striking contrast, or let the holographic material shine through for a mesmerizing metallic effect. PLEASE NOTE. This material is not recommended for designs with simple text or fine logos. The holographic effect can be overpowering and you may not be able to see the print very well. We would recommend our rainbow vinyl for a more subtle holographic effect. The inks we use on this material have a matt effect, so any printed areas would have a luxurious matt look and feel. Perfect for various applications, these stickers can be provided on sheets for ease of application or individually for promotional purposes. Customize your mosaic holographic stickers using our online builder and get a real-time quote today!",
     "highlights": [
@@ -232,11 +358,17 @@
       "White Ink and Colour",
       "Maximum Impact"
     ],
-    "specs": []
+    "specs": [],
+    "options": [
+      "Finishes Available: Holographic Gloss",
+      "Adhesives Available: Permanent Only"
+    ],
+    "whiteInkAvailable": true
   },
   {
     "value": "fluorescent-stickers",
     "label": "Fluorescent",
+    "categories": [],
     "subtitle": "Available in a fluorescent red, green, orange, yellow and pink",
     "description": "Fluorescent stickers are not just stickers; they are a beacon for your brand, lighting up with eye-catching brilliance! Our fluorescent vinyl stickers are specially crafted to ensure your message shines brightly, making them perfect for safety signs, high-visibility labels, or just to add some electrifying flair to your designs. With options for both waterproof vinyl and eco-friendly paper, our fluorescent stickers cater to all needs. Choose the sturdy waterproof vinyl for outdoor use, where they'll stand strong against the elements, or opt for the budget-friendly paper option to brighten up indoor applications. Crafting your custom fluorescent stickers is a breeze with our state-of-the-art printing technology. We ensure precision and quality in every cut, whether it's a simple circle or a complex custom contour. Each fluorescent sticker is printed with vibrant, non-fade inks that are made to last, capturing every detail of your design. Embrace the full spectrum of our fluorescent colors, from fiery neon orange to electric lime green, to make sure your stickers can't be missed. And if you need help, our team is ready to assist you with setting up your artwork, including the addition of cut paths for that perfect edge. We believe in getting things right the first time, which is why we provide a detailed PDF proof of your artwork for your approval before printing. It's important to us that what you see is what you get, ensuring your fluorescent stickers look exactly as you envisioned. Our user-friendly online product builder is your first step towards vibrant visibility. Start by selecting your shape, from standard sizes to a fully custom outline. Then, refine your choices with our range of finishes and quantities to get an instant quote. Once you're satisfied with your fluorescent masterpiece, simply upload your artwork, place it in your cart, and we'll take over from there. Our team is committed to delivering your fluorescent vinyl or paper stickers with speed, quality, and service that glows as much as your stickers will. Let's light up your brand with stickers that can't help but be seen!",
     "highlights": [
@@ -244,11 +376,19 @@
       "Range of Colours",
       "Multiple Options"
     ],
-    "specs": []
+    "specs": [],
+    "options": [
+      "Finishes Available: Satin",
+      "Adhesives Available: Permanent"
+    ],
+    "whiteInkAvailable": true
   },
   {
     "value": "kraft-paper-stickers",
     "label": "Kraft Paper",
+    "categories": [
+      "eco"
+    ],
     "subtitle": "Ribbed kraft effect labels and stickers, supplied on sheets",
     "description": "Discover our custom-printed Kraft paper labels and stickers – the eco-friendly choice with a charming rustic touch! Crafted from high-quality ribbed Kraft paper, these labels and stickers not only bring an earthy warmth to your products but also champion sustainability. Whether you're looking to add a unique flair to your products, candles, or anything else, our Kraft paper labels and stickers are the perfect canvas. Embrace their rustic charm and let your creativity shine. Our Kraft stickers are high-quality laser printed and digitally cut to any shape, allowing you to fully express your vision. Embrace the beauty of Kraft paper while leaving a friendly, eco-conscious mark. At StickerShop, we believe in taking responsibility for our environment, which is why we've proudly partnered with the Woodland Trust. Through our active involvement in their Carbon Capture Scheme, we're not just reducing our carbon footprint; we're making it disappear. When you choose our Kraft stickers, or any of our other paper stickers from our eco-friendly range, you're contributing to the Woodland Trust's mission to nurture new woodlands, helping create a better, greener world. Our Kraft stickers are conveniently supplied on sheets for easy peeling and sticking. Build your custom Kraft stickers using the interactive sticker builder above. Choose your shape, enter your dimensions and quantity to get an instant price!",
     "highlights": [
@@ -258,11 +398,20 @@
     ],
     "specs": [
       "Operating Temperature: -20°C to +80°C"
-    ]
+    ],
+    "options": [
+      "Finishes Available: Ribbed Kraft",
+      "Adhesives Available: Permanent Only"
+    ],
+    "whiteInkAvailable": false
   },
   {
     "value": "biodegradable-paper-stickers",
     "label": "Biodegradable Paper",
+    "categories": [
+      "eco",
+      "popular"
+    ],
     "subtitle": "Available in a biodegradable white or natural finish",
     "description": "Explore our custom-printed biodegradable paper labels and stickers – the eco-conscious choice with a touch of natural elegance! Crafted from a natural high-quality paper-like material made from agricultural waste (leaves and stems) with light brown fibers still visible. These labels and stickers not only enhance your products but also your environmental responsibility. We have the option to print on a pristine white or a natural finish, you can choose the perfect look for your brand. The facestock and BioTak adhesive are biodegradable and suitable for direct food contact, compliant with EC1935/2004 and FDA 175.105. The Natural option is EN13432 certified compostable. The White option is biodegradable but not EN13432 certified compostable. Please note: the kraft backing liner is recyclable but not EN13432 certified compostable. Whether you're aiming to elevate your products, candles, jars, or anything else, our biodegradable paper labels and stickers offer a versatile canvas to showcase your creativity while leaving a green footprint. Our commitment to sustainability goes beyond appearance. These biodegradable paper stickers are high-quality laser printed and precisely digitally cut to any shape, ensuring your vision comes to life with an eco-friendly twist. At StickerShop, we're dedicated to preserving our environment, which is why we proudly support the use of biodegradable materials. By opting for our biodegradable paper stickers or any of our other eco-friendly options, you're actively contributing to a cleaner, greener world. Our biodegradable paper stickers are supplied on sheets for convenient peeling and sticking. Craft your personalized biodegradable paper stickers effortlessly using our interactive sticker builder above. Choose your preferred finish, enter your dimensions, and select your quantity to receive an instant quote!",
     "highlights": [
@@ -273,11 +422,19 @@
     "specs": [
       "Operating Temperature: -20°C to +80°C",
       "Regulations: Compostability: facestock + BioTak adhesive are EN13432 certified (Natural PaperWise). Backing liner is recyclable kraft (not EN13432)."
-    ]
+    ],
+    "options": [
+      "Finishes Available: Natural or White",
+      "Adhesives Available: Permanent BioTak Biodegradable Adhesive"
+    ],
+    "whiteInkAvailable": false
   },
   {
     "value": "antique-paper-stickers",
     "label": "Antique Paper",
+    "categories": [
+      "eco"
+    ],
     "subtitle": "Eco-friendly textured paper stickers",
     "description": "Discover the elegance of our antique laid paper stickers, a perfect blend of rustic vintage charm and modern customization. Crafted with attention to detail, these textured stickers replicate the aesthetics of old-fashioned paper, adding a touch of nostalgia to your projects. The term \"laid\" pays homage to the paper's distinctive linear pattern, reminiscent of traditional paper-making methods from the past. Our antique laid paper stickers come adorned with captivating designs, including vintage illustrations and ornate calligraphy, allowing you to infuse your products with a timeless, classic appeal. Whether you're looking to create vintage-inspired packaging, embellish candles, or add a touch of sophistication to any item, our rustic textured paper stickers provide an exquisite canvas for your creativity. At StickerShop, we're dedicated to offering premium quality stickers that honor the charm of the past while embracing the efficiency of modern printing techniques. Our antique vintage paper stickers are meticulously laser printed and precisely digitally cut, ensuring that every detail of your vision is brought to life with exquisite precision. Transform your products into cherished keepsakes with the timeless allure of antique paper stickers. Explore our range today and let your creativity take center stage in a world of vintage aesthetics. Our antique textured stickers are conveniently supplied on sheets for easy peeling and sticking. Build your custom rustic stickers using the interactive sticker builder above. Choose your shape, enter your dimensions and quantity to get an instant price!",
     "highlights": [
@@ -287,19 +444,30 @@
     ],
     "specs": [
       "Operating Temperature: -20°C to +80°C"
-    ]
+    ],
+    "options": [
+      "Finishes Available: Antique Laid Finish",
+      "Adhesives Available: Permanent Only"
+    ],
+    "whiteInkAvailable": false
   },
   {
     "value": "custom-paper-stickers",
     "label": "Premium Paper",
+    "categories": [
+      "eco"
+    ],
     "subtitle": "",
     "description": "Our custom-printed paper stickers and labels are our most cost-effective option, available in any custom size or shape. High quality and highly universal - typical uses include branding jam jars, cosmetic product labels and personalised candles. Supplied on sheets.",
     "highlights": [],
-    "specs": []
+    "specs": [],
+    "options": [],
+    "whiteInkAvailable": false
   },
   {
     "value": "transparant-foiled-stickers",
     "label": "Transparent Foiled",
+    "categories": [],
     "subtitle": "Clear stickers with a gold, silver, rose gold or rainbow foil",
     "description": "Discover the ultimate shine with our clear, waterproof foiled stickers—the brightest gem in our collection! These stickers dazzle with their metallic shine, providing a striking contrast against the transparent material for extraordinary visual impact. Our foiled stickers offer a luxe look at an affordable price. Their versatile design allows for complete customization with precise cuts and even perforations, empowering you to perfect your clear, waterproof foiled labels. Choose from our Silver, Rose Gold, Gold, or Rainbow foil, all set against a crisp, clear background and affixed with durable, multipurpose permanent adhesive. IMPORTANT: Foil can only be applied on a clear or transparent background. For designs that have colour plus foil, opt for our mirror vinyl stickers—note, these will not be transparent. How to set up artwork for foiled stickers The waterproof adhesive, along with the waterproof & UV resistant inks means these printed labels can be used outdoors or in wet environments without the worry of smudging when wet. Our clear waterproof foiled stickers are made from a PET film which is fully recyclable! The foil film is less than 2.5µm (microns) thick meaning that it completely dissipates along with the adhesive during the recycling process. The coating weight is often less than conventional inks. This allows you to simply throw it in the recycling bin when you are finished with it. Our clear foiled stickers are conveniently supplied on sheets for easy peeling and sticking. Available in 4 foiled colours: Silver Rose Gold Gold Rainbow",
     "highlights": [
@@ -309,11 +477,17 @@
     ],
     "specs": [
       "Operating Temperature: -22°C to +74°C"
-    ]
+    ],
+    "options": [
+      "Finishes Available: Clear Gloss with a Silver, Rose Gold, Gold or Rainbow Foil",
+      "Adhesives Available: Permanent Only"
+    ],
+    "whiteInkAvailable": false
   },
   {
     "value": "paper-foiled-stickers",
     "label": "Paper Foiled",
+    "categories": [],
     "subtitle": "Paper stickers with a gold, silver, rose gold or rainbow foil",
     "description": "Our paper foiled stickers are our most shiny material we stock. The foiled areas of your sticker would be shiny metallic! The contrast of the foiled areas against the waterproof material can achieve some amazing results. Foiled stickers are becoming a really popular choice, with the ability to create extremely high end looking stickers at affordable prices. The best part about this premium paper foiled sticker material is that it can be cut to any shape or size and can also include perforated cuts, so you have complete control in how your custom paper foiled labels will look. Our foiled paper stickers are white with the choice of Silver, Rose Gold, Gold or Rainbow foiled areas. All conveniently backed with a multi purpose permanent adhesive. PLEASE NOTE. We can only print foiled areas on a white background. If you require coloured areas as well as foiled, you would need to order our mirror vinyl stickers. How to set up artwork for foiled stickers Our paper stickers will be able to survive the odd splash of water, but they are not designed to get wet. If you need waterproof stickers check out our waterproof foiled stickers. Our paper foiled stickers are made from a paper which is fully recyclable! The foil film is less than 2.5µm (microns) thick meaning that it completely dissipates along with the adhesive during the recycling process. The coating weight is often less than conventional inks. This allows you to simply throw it in the recycling bin when you are finished with it. Our foiled paper stickers are conveniently supplied on sheets for easy peeling and sticking. Available in 4 foiled colours: Silver Rose Gold Gold Rainbow",
     "highlights": [
@@ -324,11 +498,17 @@
     "specs": [
       "Service Temperature: -20°C to +100°C",
       "Regulations: The adhesive conforms to the EN71-3 (Toy Safety) & Packaging Regulations."
-    ]
+    ],
+    "options": [
+      "Finishes Available: White Uncoated or Gloss with a Silver, Rose Gold, Gold or Rainbow Foil",
+      "Adhesives Available: Permanent & Removable"
+    ],
+    "whiteInkAvailable": false
   },
   {
     "value": "white-waterproof-foiled-stickers",
     "label": "Waterproof Foiled",
+    "categories": [],
     "subtitle": "Waterproof stickers with a gold, silver, rose gold or rainbow foil",
     "description": "Our waterproof foiled stickers are our most shiny material we stock. The foiled areas of your sticker would be shiny metallic! The contrast of the foiled areas against the waterproof material can achieve some amazing results. Foiled stickers are becoming a really popular choice, with the ability to create extremely high end looking stickers at affordable prices The best part about this foiled sticker material is that it can be cut to any shape or size and can also include perforated cuts, so you have complete control in how your waterproof foiled labels will look. Our waterproof foiled stickers are white with the choice of Silver, Rose Gold, Gold or Rainbow foiled areas. All conveniently backed with a multi purpose permanent adhesive. PLEASE NOTE. We can only print foiled areas on a white background. If you require coloured areas as well as foiled, you would need to order our mirror vinyl stickers. How to set up artwork for foiled stickers The waterproof adhesive, along with the waterproof & UV resistant inks means these printed labels can be used outdoors or in wet environments without the worry of smudging when wet. Our waterproof foiled stickers are made from a PET film which is fully recyclable! The foil film is less than 2.5µm (microns) thick meaning that it completely dissipates along with the adhesive during the recycling process. The coating weight is often less than conventional inks. This allows you to simply throw it in the recycling bin when you are finished with it. Our foiled stickers are conveniently supplied on sheets for easy peeling and sticking. Available in 4 foiled colours: Silver Rose Gold Gold Rainbow",
     "highlights": [
@@ -338,6 +518,11 @@
     ],
     "specs": [
       "Operating Temperature: -22°C to +74°C"
-    ]
+    ],
+    "options": [
+      "Finishes Available: White Matt or Gloss with a Silver, Rose Gold, Gold or Rainbow Foil",
+      "Adhesives Available: Permanent Only"
+    ],
+    "whiteInkAvailable": false
   }
 ]
