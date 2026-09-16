@@ -236,7 +236,12 @@ function extractSourcesFromReply(text) {
 const FAMILY_INFO = `
 - stickers: Individual custom-shaped die-cut stickers for general use - branding, packaging, laptops, giveaways, product decoration. Our most popular, all-purpose option.
 - labels: Product/packaging labels, usually applied by hand from a sheet.
-- sheets: Multiple different designs printed together on one sheet (e.g. sticker packs, planner stickers, kids' sticker sheets).
+- sheets (Sticker Sheets - a distinct PRODUCT, not just "labels supplied on a sheet"): ONE SHEET
+  containing SEVERAL DIFFERENT DESIGNS together, usually with a printed background connecting
+  them (e.g. a kids' sticker pack, a planner sticker sheet, a sheet of mixed designs sold as one
+  item). Only pick this family when the customer wants multiple different designs as one product
+  - an everyday request for labels/stickers that happen to be delivered together on a backing
+  sheet is family "labels" or "stickers" with suppliedFormat "Sheets" instead, not this.
 - rolls: Labels supplied on a roll, for high-volume or machine/automatic application.
 - wall: Large wall decals/graphics for interiors, murals, decor.
 - floor: Floor decals/graphics, e.g. signage, social distancing markers, retail floor branding.
@@ -295,15 +300,22 @@ they're for. Don't use "unclear" for something we simply don't sell - that's alw
 
 STEP 3 - otherwise, pick the real family normally.
 
-SUPPLIED FORMAT (only meaningful when family is stickers, labels, sheets or rolls):
-- Singles: Individual stickers, each die cut to its own shape ("Die Cut Singles"). This is our
-  default/most common configuration for family "stickers" - use it whenever nothing in the
-  request suggests otherwise (e.g. it doesn't sound like a product-packaging label or a
-  multi-design sheet).
-- Sheets: Multiple stickers printed together and supplied on one sheet ("On Sheets"). This is
-  the default for family "labels" unless the request suggests otherwise.
+SUPPLIED FORMAT (only meaningful when family is stickers, labels, sheets or rolls) - this is
+about physical packaging, and it is EASY to confuse "Sheets" here with family "sheets"
+(Sticker Sheets) below because they share a word - they are NOT the same thing, read both
+carefully:
+- Singles: Individually die-cut stickers, not grouped with others - each one stands alone
+  ("Die Cut Singles"). Our default for family "stickers" - use it whenever nothing suggests
+  otherwise.
+- Sheets: Our STANDARD default way of supplying stickers/labels - individually die-cut pieces
+  (all the SAME design, unless told otherwise) grouped together on one shared peel-off backing
+  sheet for convenience, e.g. a sheet of identical product labels ("On Sheets"). This is the
+  default for family "labels" unless told otherwise. Despite the name, this is completely
+  different from family "sheets" (Sticker Sheets) below - most everyday "labels on a sheet"
+  requests are this, NOT that.
 - Rolls: Supplied on a roll, one sticker after another ("On Rolls").
-- StickerSheets: A dedicated sticker sheet product - use this when family is "sheets".
+- StickerSheets: use this ONLY when family is "sheets" (see below) - never for an ordinary
+  "labels on a sheet" request, which is suppliedFormat Sheets under family "labels" instead.
 - not_applicable: ONLY for families that don't use a supplied format at all (wall, floor,
   window, unclear, refer_to_support). Never use it for stickers/labels/sheets/rolls just
   because you're unsure - pick the sensible default instead.
@@ -374,6 +386,16 @@ rolls, use refer_to_support - never unclear - for anything we don't sell):
 - "I want stickers that are clear so the packaging colour shows through" -> family: labels,
   suppliedFormat: Sheets, material: clear-waterproof-vinyl, reason: "Clear Waterproof Vinyl
   labels let your packaging colour show through, supplied on a sheet for easy peeling."
+- "I need labels for my product, and I'd like them supplied on a sheet" -> family: labels,
+  suppliedFormat: Sheets, material: none, reason: "Labels supplied on a sheet is our standard
+  option - they're individually die cut but grouped together on one backing sheet for easy
+  peeling." (this is ordinary labels-on-a-sheet, NOT the Sticker Sheets product - family stays
+  "labels")
+- "I want a sheet with a few different fun designs on it, like a kids sticker pack" -> family:
+  sheets, suppliedFormat: StickerSheets, material: none, reason: "Our Sticker Sheets are exactly
+  this - multiple different designs together on one printed sheet." (this genuinely IS the
+  Sticker Sheets product, because it's several different designs as one item, not just the
+  everyday delivery format)
 `;
 
 const MATERIAL_ENUM = ['none', ...MATERIALS.map((m) => m.value)];
