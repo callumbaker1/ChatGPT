@@ -308,13 +308,16 @@ SUPPLIED FORMAT (only meaningful when family is stickers, labels, sheets or roll
   window, unclear, refer_to_support). Never use it for stickers/labels/sheets/rolls just
   because you're unsure - pick the sensible default instead.
 
-MATERIALS - use this knowledge to make "reason" genuinely helpful, the way an experienced
-member of staff would. Do NOT invent a structured material field or claim the builder has
-pre-selected it - just name the SPECIFIC material by its exact name (e.g. "Foiled stickers",
-not a vague phrase like "a gold foil effect") in your sentence whenever it clearly matters:
-durability, see-through, eco/disposable, a decorative or premium finish the customer asked
-for, or adhesion. Don't mention a material when nothing about the request calls for a specific
-one - plenty of requests are fine left generic.
+MATERIALS - IMPORTANT: most of these materials are their own separate product pages, not
+options within one product, so the "material" field is what actually decides which page the
+customer lands on - getting it right matters as much as "family" does, not just phrasing.
+Set "material" to the exact matching value whenever the customer names, implies, or clearly
+needs a specific one (a decorative/foil/metallic finish, eco/compostable, waterproof/outdoor,
+see-through, extra-durable, strong adhesive for a tricky surface). If the request is generic
+and a standard material is genuinely fine, set "material" to "none" (this lands them on the
+default product for that family, which already uses Waterproof Vinyl). Never guess a material
+value that isn't in the list below. Always name it by its exact label in "reason" too (e.g.
+"Foiled stickers", never a vague phrase like "a gold foil effect").
 ${MATERIAL_INFO}
 
 RULES:
@@ -335,31 +338,45 @@ RULES:
 // ones, so the model sees what "good" looks like without bloating the prompt.
 const RECOMMEND_EXAMPLES = `
 WORKED EXAMPLES - these are not optional flavour text, they show the exact standard your real
-answer must meet. Match this level of specificity every time (name the actual material,
-never leave suppliedFormat as not_applicable for stickers/labels/sheets/rolls, use
-refer_to_support - never unclear - for anything we don't sell):
+answer must meet. Match this level of specificity every time (set "material" whenever a
+specific one applies - it decides which product page the customer actually lands on, not just
+what "reason" says - never leave suppliedFormat as not_applicable for stickers/labels/sheets/
+rolls, use refer_to_support - never unclear - for anything we don't sell):
 - "Can you make stickers with a gold foil effect for my wedding favours?" -> family: stickers,
-  suppliedFormat: Singles, reason: "We'd recommend our Foiled stickers for that metallic foil
-  finish, supplied as individual Die Cut Singles for your favours."
+  suppliedFormat: Singles, material: paper-foiled-stickers, reason: "We'd recommend our Paper
+  Foiled stickers for that metallic foil finish, supplied as individual Die Cut Singles for
+  your favours."
+- "I would like some foiled labels please" (with nothing else to go on) -> needsClarification:
+  true, clarifyingQuestion: "Foiled looks great on a few materials - would you like it on a
+  waterproof material, a transparent one, or a paper finish?" (we offer 3 distinct foiled
+  products - Transparent, Paper and Waterproof Foiled - so don't silently default to a
+  non-foiled material like Waterproof Vinyl just because "labels" was also said; ask which foil
+  base fits, then commit on the next message even if still not 100% sure)
 - "I need stickers for my water bottle that will survive the dishwasher" -> family:
-  refer_to_support, suppliedFormat: not_applicable, reason: "We can't guarantee our materials
-  are fully dishwasher-safe, so it's best to check with our team before ordering for something
-  that'll go through repeated washes." (no material's data confirms this, so refer)
+  refer_to_support, suppliedFormat: not_applicable, material: none, reason: "We can't guarantee
+  our materials are fully dishwasher-safe, so it's best to check with our team before ordering
+  for something that'll go through repeated washes." (no material's data confirms this, so
+  refer)
 - "I want eco-friendly labels for candle jars that are food safe" -> family: labels,
-  suppliedFormat: Sheets, reason: "Biodegradable Paper is a great fit - the facestock and
-  adhesive are certified safe for direct food contact (EC1935/2004, FDA 175.105) and it's fully
-  compostable." (this material's own data confirms it, so recommend it - don't refer just
-  because the word "safe" appears)
+  suppliedFormat: Sheets, material: biodegradable-paper-stickers, reason: "Biodegradable Paper
+  is a great fit - the facestock and adhesive are certified safe for direct food contact
+  (EC1935/2004, FDA 175.105) and it's fully compostable." (this material's own data confirms
+  it, so recommend it - don't refer just because the word "safe" appears)
 - "Do you print fabric patches or embroidered badges?" -> family: refer_to_support,
-  suppliedFormat: not_applicable, reason: "We don't currently offer fabric or embroidered
-  patches - our team can let you know if that's something we can help with another way."
+  suppliedFormat: not_applicable, material: none, reason: "We don't currently offer fabric or
+  embroidered patches - our team can let you know if that's something we can help with another
+  way."
 - "Looking for stickers to put on the outside of gift boxes as a seal" -> family: labels,
-  suppliedFormat: Sheets, reason: "Labels supplied on a sheet are easiest to peel and stick as
-  a seal on gift boxes - we can also supply on a roll if that suits your workflow better."
+  suppliedFormat: Sheets, material: none, reason: "Labels supplied on a sheet are easiest to
+  peel and stick as a seal on gift boxes - we can also supply on a roll if that suits your
+  workflow better." (Waterproof Vinyl, the default, is genuinely fine here - no need to name
+  a specific material)
 - "I want stickers that are clear so the packaging colour shows through" -> family: labels,
-  suppliedFormat: Sheets, reason: "Clear Waterproof Vinyl labels let your packaging colour show
-  through, supplied on a sheet for easy peeling."
+  suppliedFormat: Sheets, material: clear-waterproof-vinyl, reason: "Clear Waterproof Vinyl
+  labels let your packaging colour show through, supplied on a sheet for easy peeling."
 `;
+
+const MATERIAL_ENUM = ['none', ...MATERIALS.map((m) => m.value)];
 
 const recommendSchema = {
   name: 'sticker_recommendation',
@@ -371,9 +388,10 @@ const recommendSchema = {
       clarifyingQuestion: { type: 'string' },
       family: { type: 'string', enum: ['stickers', 'labels', 'sheets', 'rolls', 'wall', 'floor', 'window', 'unclear', 'refer_to_support'] },
       suppliedFormat: { type: 'string', enum: ['Singles', 'Sheets', 'Rolls', 'StickerSheets', 'not_applicable'] },
+      material: { type: 'string', enum: MATERIAL_ENUM },
       reason: { type: 'string' }
     },
-    required: ['needsClarification', 'clarifyingQuestion', 'family', 'suppliedFormat', 'reason'],
+    required: ['needsClarification', 'clarifyingQuestion', 'family', 'suppliedFormat', 'material', 'reason'],
     additionalProperties: false
   }
 };
