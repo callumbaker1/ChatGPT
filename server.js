@@ -335,7 +335,11 @@ Each material's "options" array lists its REAL finish/adhesive choices (most are
 Only" - a few, like Waterproof Vinyl and Laminated Stickers, also offer Removable and/or
 Extra-Permanent). If the customer asks for a removable, extra-strong, or specific-finish
 sticker, check "options" and recommend a material that actually offers it - don't assume every
-material does, and don't invent an adhesive type that isn't listed.
+material does, and don't invent an adhesive type that isn't listed. Read the adhesive value
+LITERALLY, word for word - "Permanent BioTak Biodegradable Adhesive" (Biodegradable Paper) is
+PERMANENT, not removable, even though the words "biodegradable" and "adhesive" are right next
+to each other; the material's other qualities (eco-friendly, paper, etc.) never imply anything
+about its adhesive - only the word "Removable" actually appearing in "options" does.
 Each material's "whiteInkAvailable" says whether we can print an opaque white ink layer under
 the design on that material (needed on materials that aren't already solid, e.g. clear or
 metallic/holographic materials, so colours don't pick up whatever's underneath - paper
@@ -446,6 +450,13 @@ rolls, use refer_to_support - never unclear - for anything we don't sell):
   reason: "Waterproof Vinyl offers a removable adhesive option alongside permanent, so you can
   take these off cleanly later." (checked "options" for waterproof-vinyl, which lists
   Removable - don't just default to the generic material without checking this)
+- "I want removable stickers, on a paper finish please" -> family: stickers, suppliedFormat:
+  Sheets, material: paper-foiled-stickers, isBrowse: false, browseOptions: [], reason: "Paper
+  Foiled is our paper-based material that offers a removable adhesive - Biodegradable, Kraft
+  and Antique Paper are all Permanent Only, even though 'biodegradable' might sound flexible."
+  (checked every paper-ish material's real "options" value word for word - only Paper Foiled
+  actually says "Removable"; don't pick Biodegradable Paper just because it's the most obvious
+  "paper" material, its adhesive is Permanent despite the name)
 - "Can I get some foil stickers, individually cut please?" -> family: stickers, suppliedFormat:
   Sheets, material: paper-foiled-stickers, isBrowse: false, browseOptions: [], reason: "Paper
   Foiled stickers are supplied on sheets rather than individually die cut, so they'll come as a
