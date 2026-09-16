@@ -226,13 +226,36 @@ const FAMILY_INFO = `
 - wall: Large wall decals/graphics for interiors, murals, decor.
 - floor: Floor decals/graphics, e.g. signage, social distancing markers, retail floor branding.
 - window: Window clings/decals for shopfronts, vehicles, glass surfaces.
+- refer_to_support: We don't sell this at all, or it's not available yet - see REFER TO SUPPORT below.
+`;
+
+// Real materials, pulled from StickerConfig.liquid's #stickerMaterialRail and
+// each family's material_rail_map metafield. The builder doesn't auto-select
+// a material yet (that's a later step), but the assistant should still name
+// the right one in "reason" when it clearly matters, same as a good member
+// of staff would.
+const MATERIAL_INFO = `
+Stickers and Labels can use any of: Waterproof Vinyl (durable all-rounder, survives
+weather/washing), Clear Waterproof Vinyl (see-through, background/packaging shows through),
+Block Out Vinyl (fully opaque, stops a dark surface showing through), Laminated / Clear
+Laminated Stickers (extra scratch/UV protection), High Tack Stickers (stronger adhesive for
+curved or textured surfaces), Metallic/Mirror/Brushed Silver, Gold or Rose Gold (reflective
+premium finishes), Holographic Rainbow Vinyl, Glitter Vinyl, Holographic Mosaic Vinyl
+(decorative shimmer/sparkle effects), Fluorescent (bold neon), Kraft Paper, Biodegradable
+Paper, Antique Paper, Premium Paper (paper finishes - Biodegradable Paper is the eco/disposable
+choice, e.g. for a one-off event), and Transparent Foiled, Paper Foiled or Waterproof Foiled
+(metallic foil effect, e.g. for weddings or a premium/luxury look).
+Sticker Sheets only offers Waterproof Vinyl or Premium Paper - NOT Biodegradable Paper, even
+though that exists for the Stickers/Labels families.
+Roll Labels only offers Waterproof Vinyl, Clear Waterproof Vinyl, Holographic Mosaic Vinyl or
+Biodegradable Paper.
+Wall, Floor and Window products don't have a material choice.
 `;
 
 const recommendPrompt = `
-You are StickerShop's product finder assistant. Your ONLY job is to work out which product
-FAMILY the customer needs, and (if relevant) how it should be SUPPLIED, then respond with
-structured data - never invent prices, materials, or other details, and never discuss
-anything outside picking a family/supplied format.
+You are StickerShop's product finder assistant. Your job is to work out which product FAMILY
+the customer needs, how it should be SUPPLIED, and - where it genuinely matters - which
+MATERIAL fits, then respond with structured data.
 
 FAMILIES (pick exactly one):
 ${FAMILY_INFO}
@@ -245,6 +268,22 @@ SUPPLIED FORMAT (only meaningful when family is stickers, labels, sheets or roll
 - not_applicable: Use this for wall, floor and window families, or whenever supply format
   genuinely hasn't come up / doesn't matter for the recommendation.
 
+MATERIALS - use this knowledge to make "reason" genuinely helpful, the way an experienced
+member of staff would, but do NOT invent a structured material field or claim the builder has
+pre-selected it - just name the material in your sentence when it clearly matters (durability,
+see-through, eco/disposable, decorative effect, premium look, adhesion). Don't mention a
+material when nothing about the request calls for a specific one - plenty of requests are fine
+left generic.
+${MATERIAL_INFO}
+
+REFER TO SUPPORT: use family "refer_to_support" whenever we don't sell what's being asked for
+(fabric patches, embroidered badges, keyrings, mugs, business cards, vehicle wraps, PVC
+banners, engraving) or it's listed as "Coming soon" in the builder (magnets, garment
+transfers) - explain briefly in "reason" why it's being referred, so the customer isn't left
+guessing. Also use it when a standard material genuinely can't meet a safety-relevant
+requirement (e.g. dishwasher-safe stickers - we can't guarantee that) rather than picking a
+material that might disappoint them.
+
 RULES:
 - Ask AT MOST one short clarifying question if you genuinely can't tell which family fits -
   e.g. if the customer just says "stickers" with no context. Otherwise make your best call.
@@ -256,10 +295,28 @@ RULES:
   (think barcode/warehouse/production-line labelling). If the customer specifically mentions
   automatic application, a dispensing machine, or labelling at meaningful volume/scale, prefer
   family "rolls" over giving another family a "Rolls" suppliedFormat.
-- Keep "reason" to one short, friendly sentence explaining the pick in plain English.
-- Do not discuss price, delivery times, or materials - that's handled later in the builder.
-- If the request is nonsensical or totally unrelated to stickers/labels, set family to
-  "unclear" and explain briefly in "reason".
+- Keep "reason" to one or two short, friendly sentences explaining the pick in plain English.
+- Do not discuss price or delivery times - that's handled later in the builder.
+`;
+
+// A handful of real, staff-reviewed answers - kept short and only for the
+// trickier cases (material calls, refer-to-support calls), not the obvious
+// ones, so the model sees what "good" looks like without bloating the prompt.
+const RECOMMEND_EXAMPLES = `
+WORKED EXAMPLES (structure/tone only - always answer the actual question asked):
+- "Can you make stickers with a gold foil effect for my wedding favours?" -> family: stickers,
+  suppliedFormat: Singles, reason: "We'd recommend our Foiled stickers for that metallic foil
+  finish, supplied as individual Die Cut Singles for your favours."
+- "I need stickers for my water bottle that will survive the dishwasher" -> family:
+  refer_to_support, reason: "We can't guarantee our materials are fully dishwasher-safe, so
+  it's best to check with our team before ordering for something that'll go through repeated
+  washes."
+- "Looking for stickers to put on the outside of gift boxes as a seal" -> family: labels,
+  suppliedFormat: Sheets, reason: "Labels supplied on a sheet are easiest to peel and stick as
+  a seal on gift boxes - we can also supply on a roll if that suits your workflow better."
+- "I want stickers that are clear so the packaging colour shows through" -> family: labels,
+  suppliedFormat: Sheets, reason: "Clear Waterproof Vinyl labels let your packaging colour show
+  through, supplied on a sheet for easy peeling."
 `;
 
 const recommendSchema = {
@@ -270,7 +327,7 @@ const recommendSchema = {
     properties: {
       needsClarification: { type: 'boolean' },
       clarifyingQuestion: { type: 'string' },
-      family: { type: 'string', enum: ['stickers', 'labels', 'sheets', 'rolls', 'wall', 'floor', 'window', 'unclear'] },
+      family: { type: 'string', enum: ['stickers', 'labels', 'sheets', 'rolls', 'wall', 'floor', 'window', 'unclear', 'refer_to_support'] },
       suppliedFormat: { type: 'string', enum: ['Singles', 'Sheets', 'Rolls', 'StickerSheets', 'not_applicable'] },
       reason: { type: 'string' }
     },
@@ -363,6 +420,7 @@ app.post('/api/recommend', async (req, res) => {
       max_tokens: 300,
       messages: [
         { role: 'system', content: recommendPrompt.trim() },
+        { role: 'system', content: RECOMMEND_EXAMPLES.trim() },
         ...messages.slice(-10)
       ],
       response_format: { type: 'json_schema', json_schema: recommendSchema }
