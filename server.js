@@ -211,6 +211,68 @@ function extractSourcesFromReply(text) {
   return { clean, sources };
 }
 
+// ---------------- Product finder (homepage "which sticker do I need" box) ----------------
+// Separate from the help-centre chat above: this endpoint returns structured
+// data (not a chat reply) so the homepage can act on it directly - navigate
+// to the right product and, where relevant, pre-select how it's supplied.
+// Deliberately narrow in scope for now (product family + supplied format
+// only) - deeper autoconfiguration of the builder's other options is left
+// for later once StickerConfig's own setup is finalised.
+const FAMILY_INFO = `
+- stickers: Individual custom-shaped die-cut stickers for general use - branding, packaging, laptops, giveaways, product decoration. Our most popular, all-purpose option.
+- labels: Product/packaging labels, usually applied by hand from a sheet.
+- sheets: Multiple different designs printed together on one sheet (e.g. sticker packs, planner stickers, kids' sticker sheets).
+- rolls: Labels supplied on a roll, for high-volume or machine/automatic application.
+- wall: Large wall decals/graphics for interiors, murals, decor.
+- floor: Floor decals/graphics, e.g. signage, social distancing markers, retail floor branding.
+- window: Window clings/decals for shopfronts, vehicles, glass surfaces.
+`;
+
+const recommendPrompt = `
+You are StickerShop's product finder assistant. Your ONLY job is to work out which product
+FAMILY the customer needs, and (if relevant) how it should be SUPPLIED, then respond with
+structured data - never invent prices, materials, or other details, and never discuss
+anything outside picking a family/supplied format.
+
+FAMILIES (pick exactly one):
+${FAMILY_INFO}
+
+SUPPLIED FORMAT (only meaningful when family is stickers, labels, sheets or rolls):
+- Singles: Individual stickers, each die cut to its own shape ("Die Cut Singles").
+- Sheets: Multiple stickers printed together and supplied on one sheet ("On Sheets").
+- Rolls: Supplied on a roll, one sticker after another ("On Rolls").
+- StickerSheets: A dedicated sticker sheet product - use this when family is "sheets".
+- not_applicable: Use this for wall, floor and window families, or whenever supply format
+  genuinely hasn't come up / doesn't matter for the recommendation.
+
+RULES:
+- Ask AT MOST one short clarifying question if you genuinely can't tell which family fits -
+  e.g. if the customer just says "stickers" with no context. Otherwise make your best call.
+- Never ask a second clarifying question - after one round of clarification, commit to a
+  recommendation even if you're not fully certain.
+- Keep "reason" to one short, friendly sentence explaining the pick in plain English.
+- Do not discuss price, delivery times, or materials - that's handled later in the builder.
+- If the request is nonsensical or totally unrelated to stickers/labels, set family to
+  "unclear" and explain briefly in "reason".
+`;
+
+const recommendSchema = {
+  name: 'sticker_recommendation',
+  strict: true,
+  schema: {
+    type: 'object',
+    properties: {
+      needsClarification: { type: 'boolean' },
+      clarifyingQuestion: { type: 'string' },
+      family: { type: 'string', enum: ['stickers', 'labels', 'sheets', 'rolls', 'wall', 'floor', 'window', 'unclear'] },
+      suppliedFormat: { type: 'string', enum: ['Singles', 'Sheets', 'Rolls', 'StickerSheets', 'not_applicable'] },
+      reason: { type: 'string' }
+    },
+    required: ['needsClarification', 'clarifyingQuestion', 'family', 'suppliedFormat', 'reason'],
+    additionalProperties: false
+  }
+};
+
 // ---------------- App ----------------
 const app = express();
 app.use(cors());
@@ -276,6 +338,54 @@ app.post('/api/chat', async (req, res) => {
     // items/sources are already client-shaped via their respective extractors
     res.json({ reply: clean, products: items, sources });
 
+  } catch (err) {
+    console.error('Server error:', err);
+    res.status(500).send('Server error');
+  }
+});
+
+// Product finder endpoint - returns structured JSON, not a chat reply
+app.post('/api/recommend', async (req, res) => {
+  try {
+    if (!APIKEY) return res.status(500).send('Missing OPENAI_API_KEY');
+
+    const { messages = [] } = req.body || {};
+
+    const body = {
+      model: 'gpt-4o-mini',
+      temperature: 0.3,
+      max_tokens: 300,
+      messages: [
+        { role: 'system', content: recommendPrompt.trim() },
+        ...messages.slice(-10)
+      ],
+      response_format: { type: 'json_schema', json_schema: recommendSchema }
+    };
+
+    const resp = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${APIKEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+
+    const data = await resp.json();
+    if (!resp.ok) {
+      console.error('OpenAI error:', data);
+      return res.status(500).send(data?.error?.message || 'OpenAI request failed');
+    }
+
+    let parsed;
+    try {
+      parsed = JSON.parse(data?.choices?.[0]?.message?.content || '{}');
+    } catch {
+      parsed = null;
+    }
+    if (!parsed) return res.status(500).send('Bad model response');
+
+    res.json(parsed);
   } catch (err) {
     console.error('Server error:', err);
     res.status(500).send('Server error');
