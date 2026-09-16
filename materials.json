@@ -19,7 +19,12 @@
       "Finishes Available: Matt & Gloss",
       "Adhesives Available: Permanent, Removable & High Tack"
     ],
-    "whiteInkAvailable": false
+    "whiteInkAvailable": false,
+    "suppliedFormats": [
+      "Singles",
+      "Sheets",
+      "Rolls"
+    ]
   },
   {
     "value": "clear-waterproof-vinyl",
@@ -41,7 +46,12 @@
       "Finishes Available: Matt & Gloss",
       "Adhesives Available: Permanent Only"
     ],
-    "whiteInkAvailable": true
+    "whiteInkAvailable": true,
+    "suppliedFormats": [
+      "Sheets",
+      "Singles",
+      "Rolls"
+    ]
   },
   {
     "value": "block-out-vinyl",
@@ -61,7 +71,10 @@
       "Finishes Available: Matt & Gloss",
       "Adhesives Available: Permanent Only"
     ],
-    "whiteInkAvailable": false
+    "whiteInkAvailable": false,
+    "suppliedFormats": [
+      "Sheets"
+    ]
   },
   {
     "value": "laminated-stickers",
@@ -83,7 +96,10 @@
       "Finishes Available: Matt & Gloss",
       "Adhesives Available: Permanent, Removable & Extra-Permanent"
     ],
-    "whiteInkAvailable": false
+    "whiteInkAvailable": false,
+    "suppliedFormats": [
+      "Sheets"
+    ]
   },
   {
     "value": "clear-laminated-stickers",
@@ -103,7 +119,10 @@
       "Finishes Available: Matt & Gloss",
       "Adhesives Available: Permanent Only"
     ],
-    "whiteInkAvailable": true
+    "whiteInkAvailable": true,
+    "suppliedFormats": [
+      "Sheets"
+    ]
   },
   {
     "value": "high-tack-stickers",
@@ -124,7 +143,10 @@
       "Finishes Available: Matt & Gloss",
       "Adhesives Available: Extra-Permanent / High Tack"
     ],
-    "whiteInkAvailable": false
+    "whiteInkAvailable": false,
+    "suppliedFormats": [
+      "Sheets"
+    ]
   },
   {
     "value": "metallic-vinyl-stickers",
@@ -147,7 +169,11 @@
       "Finishes Available: Silver & Gold / Matt & Gloss",
       "Adhesives Available: Permanent Only"
     ],
-    "whiteInkAvailable": true
+    "whiteInkAvailable": true,
+    "suppliedFormats": [
+      "Singles",
+      "Sheets"
+    ]
   },
   {
     "value": "metallic-vinyl-stickers-gold",
@@ -170,7 +196,11 @@
       "Finishes Available: Silver & Gold / Matt & Gloss",
       "Adhesives Available: Permanent Only"
     ],
-    "whiteInkAvailable": true
+    "whiteInkAvailable": true,
+    "suppliedFormats": [
+      "Singles",
+      "Sheets"
+    ]
   },
   {
     "value": "mirror-vinyl-stickers",
@@ -192,7 +222,11 @@
       "Finishes Available: Silver, Rose Gold & Gold Mirror",
       "Adhesives Available: Permanent Only"
     ],
-    "whiteInkAvailable": true
+    "whiteInkAvailable": true,
+    "suppliedFormats": [
+      "Singles",
+      "Sheets"
+    ]
   },
   {
     "value": "mirror-vinyl-stickers-gold",
@@ -214,7 +248,11 @@
       "Finishes Available: Silver, Rose Gold & Gold Mirror",
       "Adhesives Available: Permanent Only"
     ],
-    "whiteInkAvailable": true
+    "whiteInkAvailable": true,
+    "suppliedFormats": [
+      "Singles",
+      "Sheets"
+    ]
   },
   {
     "value": "mirror-vinyl-stickers-rose-gold",
@@ -236,7 +274,11 @@
       "Finishes Available: Silver, Rose Gold & Gold Mirror",
       "Adhesives Available: Permanent Only"
     ],
-    "whiteInkAvailable": true
+    "whiteInkAvailable": true,
+    "suppliedFormats": [
+      "Singles",
+      "Sheets"
+    ]
   },
   {
     "value": "brushed-vinyl-stickers",
@@ -258,7 +300,11 @@
       "Finishes Available: Silver, Rose Gold & Gold Brushed",
       "Adhesives Available: Permanent Only"
     ],
-    "whiteInkAvailable": true
+    "whiteInkAvailable": true,
+    "suppliedFormats": [
+      "Singles",
+      "Sheets"
+    ]
   },
   {
     "value": "brushed-vinyl-stickers-gold",
@@ -280,7 +326,11 @@
       "Finishes Available: Silver, Rose Gold & Gold Brushed",
       "Adhesives Available: Permanent Only"
     ],
-    "whiteInkAvailable": true
+    "whiteInkAvailable": true,
+    "suppliedFormats": [
+      "Singles",
+      "Sheets"
+    ]
   },
   {
     "value": "brushed-vinyl-stickers-rose-gold",
@@ -302,7 +352,11 @@
       "Finishes Available: Silver, Rose Gold & Gold Brushed",
       "Adhesives Available: Permanent Only"
     ],
-    "whiteInkAvailable": true
+    "whiteInkAvailable": true,
+    "suppliedFormats": [
+      "Singles",
+      "Sheets"
+    ]
   },
   {
     "value": "rainbow-vinyl-stickers",
@@ -322,7 +376,12 @@
       "Finishes Available: Rainbow Effect Gloss",
       "Adhesives Available: Permanent Only"
     ],
-    "whiteInkAvailable": true
+    "whiteInkAvailable": true,
+    "suppliedFormats": [
+      "Singles",
+      "Sheets",
+      "Rolls"
+    ]
   },
   {
     "value": "glitter-vinyl-stickers",
@@ -343,7 +402,11 @@
       "Finishes Available: Glitter Effect Gloss",
       "Adhesives Available: Permanent Only"
     ],
-    "whiteInkAvailable": true
+    "whiteInkAvailable": true,
+    "suppliedFormats": [
+      "Singles",
+      "Sheets"
+    ]
   },
   {
     "value": "holographic-vinyl-stickers",
@@ -363,7 +426,11 @@
       "Finishes Available: Holographic Gloss",
       "Adhesives Available: Permanent Only"
     ],
-    "whiteInkAvailable": true
+    "whiteInkAvailable": true,
+    "suppliedFormats": [
+      "Singles",
+      "Sheets"
+    ]
   },
   {
     "value": "fluorescent-stickers",
@@ -381,7 +448,10 @@
       "Finishes Available: Satin",
       "Adhesives Available: Permanent"
     ],
-    "whiteInkAvailable": true
+    "whiteInkAvailable": true,
+    "suppliedFormats": [
+      "Sheets"
+    ]
   },
   {
     "value": "kraft-paper-stickers",
@@ -403,7 +473,10 @@
       "Finishes Available: Ribbed Kraft",
       "Adhesives Available: Permanent Only"
     ],
-    "whiteInkAvailable": false
+    "whiteInkAvailable": false,
+    "suppliedFormats": [
+      "Sheets"
+    ]
   },
   {
     "value": "biodegradable-paper-stickers",
@@ -427,7 +500,11 @@
       "Finishes Available: Natural or White",
       "Adhesives Available: Permanent BioTak Biodegradable Adhesive"
     ],
-    "whiteInkAvailable": false
+    "whiteInkAvailable": false,
+    "suppliedFormats": [
+      "Sheets",
+      "Rolls"
+    ]
   },
   {
     "value": "antique-paper-stickers",
@@ -449,7 +526,10 @@
       "Finishes Available: Antique Laid Finish",
       "Adhesives Available: Permanent Only"
     ],
-    "whiteInkAvailable": false
+    "whiteInkAvailable": false,
+    "suppliedFormats": [
+      "Sheets"
+    ]
   },
   {
     "value": "custom-paper-stickers",
@@ -462,7 +542,10 @@
     "highlights": [],
     "specs": [],
     "options": [],
-    "whiteInkAvailable": false
+    "whiteInkAvailable": false,
+    "suppliedFormats": [
+      "Sheets"
+    ]
   },
   {
     "value": "transparant-foiled-stickers",
@@ -482,7 +565,10 @@
       "Finishes Available: Clear Gloss with a Silver, Rose Gold, Gold or Rainbow Foil",
       "Adhesives Available: Permanent Only"
     ],
-    "whiteInkAvailable": false
+    "whiteInkAvailable": false,
+    "suppliedFormats": [
+      "Sheets"
+    ]
   },
   {
     "value": "paper-foiled-stickers",
@@ -503,7 +589,10 @@
       "Finishes Available: White Uncoated or Gloss with a Silver, Rose Gold, Gold or Rainbow Foil",
       "Adhesives Available: Permanent & Removable"
     ],
-    "whiteInkAvailable": false
+    "whiteInkAvailable": false,
+    "suppliedFormats": [
+      "Sheets"
+    ]
   },
   {
     "value": "white-waterproof-foiled-stickers",
@@ -523,6 +612,9 @@
       "Finishes Available: White Matt or Gloss with a Silver, Rose Gold, Gold or Rainbow Foil",
       "Adhesives Available: Permanent Only"
     ],
-    "whiteInkAvailable": false
+    "whiteInkAvailable": false,
+    "suppliedFormats": [
+      "Sheets"
+    ]
   }
 ]

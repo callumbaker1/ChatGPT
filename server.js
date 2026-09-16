@@ -344,6 +344,15 @@ materials are already opaque enough and never need it). Mention it in "reason" w
 choice in itself, so don't let it change "material".
 Each material's "categories" tags match the real filter tabs in the builder ("popular",
 "metallics", "eco") - see BROWSING below for when this matters.
+Each material's "suppliedFormats" lists which supplied formats ACTUALLY EXIST for it - this is
+a hard constraint, not a preference. Most decorative/paper materials are Sheets-only; only
+Waterproof Vinyl and Clear Waterproof Vinyl support Singles, and only a handful support Rolls.
+Whenever "material" is not "none", "suppliedFormat" MUST be one of that material's
+suppliedFormats - never combine a material with a format it doesn't actually offer (e.g. Paper
+Foiled is Sheets-only, so it can never be "Singles", no matter what family/default logic above
+would otherwise suggest). If the format the customer wants isn't in the chosen material's
+suppliedFormats, either pick a different material that does offer it (if one clearly fits) or
+say so honestly in "reason" instead of pairing them incorrectly.
 ${MATERIAL_INFO}
 
 BROWSING vs RECOMMENDING - these need different kinds of answer:
@@ -437,6 +446,12 @@ rolls, use refer_to_support - never unclear - for anything we don't sell):
   reason: "Waterproof Vinyl offers a removable adhesive option alongside permanent, so you can
   take these off cleanly later." (checked "options" for waterproof-vinyl, which lists
   Removable - don't just default to the generic material without checking this)
+- "Can I get some foil stickers, individually cut please?" -> family: stickers, suppliedFormat:
+  Sheets, material: paper-foiled-stickers, isBrowse: false, browseOptions: [], reason: "Paper
+  Foiled stickers are supplied on sheets rather than individually die cut, so they'll come as a
+  sheet you peel from rather than loose singles." (paper-foiled-stickers' suppliedFormats is
+  ["Sheets"] only - Singles isn't real for this material even though the customer asked for it,
+  so say so honestly in "reason" instead of promising something that doesn't exist)
 - "I want holographic stickers, will the colours look solid or see-through?" -> family:
   stickers, suppliedFormat: Singles, material: holographic-vinyl-stickers, isBrowse: false,
   browseOptions: [], reason: "Holographic Mosaic Vinyl can take a white ink layer under your
@@ -461,6 +476,23 @@ rolls, use refer_to_support - never unclear - for anything we don't sell):
 `;
 
 const MATERIAL_ENUM = ['none', ...MATERIALS.map((m) => m.value)];
+const MATERIALS_BY_VALUE = new Map(MATERIALS.map((m) => [m.value, m]));
+
+// Belt-and-braces on top of the prompt instruction: the model occasionally
+// still pairs a material with a supplied format it doesn't really offer
+// (found via a real bug - Paper Foiled recommended as "Die Cut Singles",
+// which isn't a real product). Clamp deterministically to a format the
+// material's own real data confirms, rather than trust wording alone.
+function enforceSuppliedFormatAvailability(rec) {
+  if (!rec || rec.isBrowse || !rec.material || rec.material === 'none') return rec;
+  const material = MATERIALS_BY_VALUE.get(rec.material);
+  if (!material || !Array.isArray(material.suppliedFormats) || !material.suppliedFormats.length) return rec;
+  if (material.suppliedFormats.includes(rec.suppliedFormat)) return rec;
+
+  const corrected = material.suppliedFormats[0];
+  console.warn(`Corrected suppliedFormat for ${rec.material}: ${rec.suppliedFormat} -> ${corrected}`);
+  return { ...rec, suppliedFormat: corrected };
+}
 
 const recommendSchema = {
   name: 'sticker_recommendation',
@@ -605,7 +637,7 @@ app.post('/api/recommend', async (req, res) => {
     }
     if (!parsed) return res.status(500).send('Bad model response');
 
-    res.json(parsed);
+    res.json(enforceSuppliedFormatAvailability(parsed));
   } catch (err) {
     console.error('Server error:', err);
     res.status(500).send('Server error');
