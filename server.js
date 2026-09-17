@@ -613,6 +613,16 @@ function enforceSuppliedFormatAvailability(rec) {
 // capability the material's own data contradicts.
 function enforceAdhesiveClaims(rec) {
   if (!rec || rec.isBrowse || !rec.material || rec.material === 'none' || !rec.reason) return rec;
+  // Same reasoning as the suppliedFormat guard above: for sheets/rolls, a
+  // material's "options" describes its OWN standalone product (which may be
+  // empty/incomplete, like Premium Paper's), not the real adhesive nuance
+  // that applies to it as an ingredient of the Sticker Sheets/Roll Labels
+  // family - that lives in FAMILY DETAIL instead, which this check doesn't
+  // see. Checking material.options here for those families produced a false
+  // correction in testing (claimed Premium Paper is Permanent-only inside a
+  // Sticker Sheets answer, contradicting the real "Removable on matt paper"
+  // fact) - skip and trust the prompt-level guidance for these two.
+  if (rec.family === 'sheets' || rec.family === 'rolls') return rec;
   const material = MATERIALS_BY_VALUE.get(rec.material);
   if (!material) return rec;
 
