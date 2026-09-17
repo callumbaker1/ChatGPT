@@ -28,5 +28,25 @@
       "Finishes Available: Gloss",
       "Adhesives Available: Static Cling (Repositionable)"
     ]
+  },
+  {
+    "value": "sheets",
+    "label": "Sticker Sheets",
+    "subtitle": "Custom printed sticker sheets, available in paper or waterproof vinyl",
+    "description": "Our custom printed sticker sheets are perfect for when you want multiple stickers on a single sheet. We can kiss cut as many stickers as you like on a sheet size of your choice. Sticker sheets are being widely used in the creative design sector, with many designers and illustrators showing off their work in sticker form. Each sticker can be peeled away from the rest of the sheet with ease. When it comes to sticker sheet printing, we will digitally print and cut your custom artwork onto the sticker sheets using the latest cutting-edge print technology. Our printers can achieve outstanding quality at high speeds which enables us to get your order out as quickly as possible. For durability and longevity, we offer printing on waterproof vinyl material. Vinyl sticker sheets are excellent for stickers that will be exposed to moisture, such as bumper stickers, outdoor equipment labels, or bathroom products. Waterproof vinyl stickers resist rain, splashes, and spills, maintaining their vibrant look over time. Alternatively, if you're seeking a more budget-friendly option, our high-quality paper material is ideal. While it may not be waterproof, it provides a sharp, clear print and is perfect for indoor applications such as envelope seals, scrapbooking, or event name tags. Sticker sheets are particularly popular as giveaways at events, trade shows, or within a storefront. They're a fun and interactive piece of marketing material that customers can take home, use, and share, increasing brand visibility organically. We will send you a PDF proof of your artwork before it goes to print to ensure you get the sticker sheet you want. We can help add cut paths to your artwork if needed (please include as much information as possible in the comments section), but if you are able to add in cut paths or key lines that would be beneficial. Use our interactive product builder above to create your perfect custom sticker sheet. Start by selecting a shape - you can choose our standard A-sizes or pop in a custom sheet size. Work your way through the builder choosing your finishing options (choosing between gloss and matt), the material and the quantity; and by the end you'll see a live price. Once you are happy with your sticker sheet configuration, you can upload your artwork and add it to your cart. Get creative and let your brand stick out with our custom sticker sheets - perfect for any purpose, audience, or event. Or for faster application and flexibility, order stickers on our sticker rolls.",
+    "options": [
+      "Finishes Available: Matt & Gloss",
+      "Adhesives Available: Permanent (Removable available on matt paper)"
+    ]
+  },
+  {
+    "value": "rolls",
+    "label": "Roll Labels",
+    "subtitle": "Printed labels on rolls for machine or hand application",
+    "description": "Labels and stickers on rolls are becoming increasingly popular - perfect for quick and efficient application for packaging labels, barcodes, and price stickers. Supplied on rolls, they are ideal for use with labelling machines, making the application process seamless and professional. They can also be hand-applied, offering flexibility for any use case, and are easy to store without taking up much space. Our printed roll labels are available in a fully waterproof option, suitable for both indoor and outdoor use. Waterproof labels come in three high-quality materials: white vinyl, clear vinyl and holographic vinyl. All vinyl options are laminated in either a gloss or matt finish for added durability and scratch resistance. Simply peel and apply for a quick and hassle-free experience. We also offer an eco-friendly paper option, which is fully biodegradable. This is a brilliant white, woodfree material composed of 95% sugarcane fibres and 5% hemp and linen. Unlike vinyl, this option is supplied unlaminated for a more natural finish. Roll labels are perfect for enhancing brand visibility. They're an excellent choice for businesses looking to label their products efficiently while maintaining a professional appearance. Whether for product branding, shipping, or packaging, our labels on rolls provide a reliable and effective solution, printed in full-colour CMYK, including white, to meet your specific needs. Use our interactive product builder above to create your perfect roll label. Start by selecting your material and finish - choose from white, clear or holographic vinyl, or eco-friendly paper. Work your way through the builder, choosing your shape, size, quantity and other options, and see a live price update. Once you're happy with your labels, upload your artwork and add them to the cart. Enjoy the convenience and quality of our custom-printed roll labels for your business.",
+    "options": [
+      "Finishes Available: Matt & Gloss",
+      "Adhesives Available: Permanent (multi-purpose)"
+    ]
   }
 ]

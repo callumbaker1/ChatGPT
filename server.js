@@ -52,13 +52,15 @@ try {
   console.warn('materials.json failed to load:', err.message);
 }
 
-// ---------------- Load wall/floor/window family knowledge (optional) ----------------
+// ---------------- Load extra family-level knowledge (optional) ----------------
 // Generated from StickerShop-Theme-New's scripts/sticker-finder/generate-family-knowledge.mjs.
-// These three families don't have a material rail (each is a single product,
-// not a menu of separate material pages) so they had no real knowledge at
-// all before this - the AI could only ask generic, ungrounded clarifying
-// questions instead of the real choice each product actually offers
-// (e.g. window: white or transparent cling; wall/floor: indoor or outdoor).
+// Covers wall/floor/window (no material rail at all - each is a single
+// product, so they had no real knowledge before this: the AI could only ask
+// generic, ungrounded clarifying questions instead of the real choice each
+// product offers, e.g. window: white or transparent cling; wall/floor:
+// indoor or outdoor) and family-level nuance for sheets/rolls that isn't a
+// per-material fact (e.g. Sticker Sheets' Removable adhesive only applies
+// on matt Premium Paper, not flatly "yes/no").
 const FAMILIES_PATH = path.join(__dirname, 'families.json');
 let FAMILIES = [];
 try {
@@ -261,11 +263,11 @@ const FAMILY_INFO = `
   sheet is family "labels" or "stickers" with suppliedFormat "Sheets" instead, not this.
 - rolls: Labels supplied on a roll, for high-volume or machine/automatic application.
 - wall: Wall decals/graphics for interiors, murals, decor, signage. Real indoor vs outdoor
-  choice - see WALL/FLOOR/WINDOW DETAIL below, this matters as much as material does elsewhere.
+  choice - see FAMILY DETAIL below, this matters as much as material does elsewhere.
 - floor: Floor decals/graphics, e.g. safety markings, wayfinding, retail floor branding. Real
-  indoor vs outdoor choice - see WALL/FLOOR/WINDOW DETAIL below.
+  indoor vs outdoor choice - see FAMILY DETAIL below.
 - window: Window clings/decals for shopfronts, vehicles, glass surfaces. Real white (opaque) vs
-  transparent choice - see WALL/FLOOR/WINDOW DETAIL below.
+  transparent choice - see FAMILY DETAIL below.
 - refer_to_support: We don't sell this at all, or it's not available yet - see REFER TO SUPPORT below.
 `;
 
@@ -284,7 +286,7 @@ Roll Labels only offers Waterproof Vinyl, Clear Waterproof Vinyl, Holographic Mo
 Biodegradable Paper.
 Wall, Floor and Window don't have a separate "material" (no "material" value applies - always
 "none" for these families), but each is still a real choice between two variants of that one
-product - see WALL/FLOOR/WINDOW DETAIL below, and don't skip it just because "material" isn't
+product - see FAMILY DETAIL below, and don't skip it just because "material" isn't
 involved.
 `;
 const MATERIAL_INFO = MATERIALS.length
@@ -297,8 +299,8 @@ const MATERIAL_INFO = MATERIALS.length
 // separate product pages), but the choice is just as real and just as much
 // a customer's actual decision, so the clarifying question when it's
 // unclear should be THIS, not an invented generic one.
-const WALL_FLOOR_WINDOW_INFO = FAMILIES.length
-  ? `WALL/FLOOR/WINDOW DETAIL (JSON, one entry per family - "options" is the real choice each one offers):\n${JSON.stringify(FAMILIES)}`
+const FAMILY_DETAIL_INFO = FAMILIES.length
+  ? `FAMILY DETAIL (JSON, one entry per family - "options" is the real choice each one offers):\n${JSON.stringify(FAMILIES)}`
   : '';
 
 const recommendPrompt = `
@@ -392,7 +394,7 @@ suppliedFormats, either pick a different material that does offer it (if one cle
 say so honestly in "reason" instead of pairing them incorrectly.
 ${MATERIAL_INFO}
 
-${WALL_FLOOR_WINDOW_INFO}
+${FAMILY_DETAIL_INFO}
 For wall/floor/window: check FIRST whether the customer's own words already answer the real
 choice (window: the words "white"/"opaque" vs "transparent"/"clear"/"see-through"; wall/floor:
 "indoor"/"inside" vs "outdoor"/"outside"/"exterior"/a specific outdoor surface like a shopfront,
@@ -400,8 +402,18 @@ pavement, brick wall). If they already said it, in this message or earlier in th
 conversation, DO NOT ask again - set needsClarification to false and commit straight to a
 confident answer that uses their stated choice in "reason". Only ask when it's genuinely not
 stated anywhere yet, and when you do, that IS your one clarifying question - ask about that
-specific real choice using the actual language from its "options"/description above, never a
-vague generic question like "what design or effect are you looking for?".
+specific real choice, never a vague generic question like "what design or effect are you
+looking for?".
+For wall/floor specifically: ask and answer this PURELY as which product fits their situation
+- "Is this for indoor or outdoor use?" - and never mention adhesive mechanics (repositionable,
+permanent bond, "Super Grab", etc.) in the clarifying question OR in "reason". The FAMILY
+DETAIL "options" data explains the real adhesive difference so you understand WHY indoor vs
+outdoor matters, not so you can recite it to the customer - keep the conversation about their
+use case, not the underlying material science. Window's white-vs-transparent question is fine
+to state directly, that's a visible appearance choice, not a mechanism.
+For sheets (Sticker Sheets): if the customer asks for removable, note that it's only available
+on our matt Premium Paper (not Waterproof Vinyl, and not on gloss) - set material to
+custom-paper-stickers when removable matters, and say so plainly in "reason".
 
 BROWSING vs RECOMMENDING - these need different kinds of answer:
 - RECOMMENDING (the default): the customer describes a NEED ("stickers for my wedding
@@ -500,6 +512,11 @@ rolls, use refer_to_support - never unclear - for anything we don't sell):
   material: none, isBrowse: false, browseOptions: [], reason: "" (window stickers have a real
   white-vs-transparent choice - ask THAT, not a vague "what design or effect" question, which
   gives the customer nothing concrete to answer)
+- "I need wall stickers" (nothing else said) -> needsClarification: true, clarifyingQuestion:
+  "Is this for indoor or outdoor use?", family: wall, suppliedFormat: not_applicable, material:
+  none, isBrowse: false, browseOptions: [], reason: "" (keep it purely about their use case -
+  NOT "would you like repositionable indoor adhesive or a permanent outdoor bond?", which drags
+  adhesive mechanics into a question that should just be about where it's going)
 - "I need transparent window stickers for my shop front" -> needsClarification: false,
   clarifyingQuestion: "", family: window, suppliedFormat: not_applicable, material: none,
   isBrowse: false, browseOptions: [], reason: "Window Stickers on our transparent static cling
