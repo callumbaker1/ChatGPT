@@ -579,7 +579,18 @@ const SUPPLIED_FORMAT_PHRASES = {
 // suppliedFormat to Sheets) is its own bug: a visible contradiction between
 // what the text says and what the page actually does.
 function enforceSuppliedFormatAvailability(rec) {
-  if (!rec || rec.isBrowse || !rec.material || rec.material === 'none') return rec;
+  if (!rec || rec.isBrowse) return rec;
+
+  // Sheets/Rolls are governed by the FAMILY, not by whichever material also
+  // happens to be used - e.g. Premium Paper's own suppliedFormats (["Sheets"])
+  // describes ITS standalone product page, but as the material inside a
+  // Sticker Sheets recommendation the real format is always "StickerSheets".
+  // Checking the material's array here was a false-positive bug found via
+  // testing - it "corrected" an already-correct sheets recommendation.
+  if (rec.family === 'sheets') return rec.suppliedFormat === 'StickerSheets' ? rec : { ...rec, suppliedFormat: 'StickerSheets' };
+  if (rec.family === 'rolls') return rec.suppliedFormat === 'Rolls' ? rec : { ...rec, suppliedFormat: 'Rolls' };
+
+  if (!rec.material || rec.material === 'none') return rec;
   const material = MATERIALS_BY_VALUE.get(rec.material);
   if (!material || !Array.isArray(material.suppliedFormats) || !material.suppliedFormats.length) return rec;
   if (material.suppliedFormats.includes(rec.suppliedFormat)) return rec;
